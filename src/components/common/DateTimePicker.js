@@ -27,7 +27,6 @@ export const DatePicker = ({ timeStamp, btnText, setDate }) => {
           onChange={(e, date) => {
             setShow(false)
             date && setDate(Date.parse(date))
-            console.log(date)
           }}
         />
       }

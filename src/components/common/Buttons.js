@@ -57,7 +57,7 @@ export const ButtonSettings = ({ onPress, text, icon, iconType, iconSize = 28, i
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#1d2733',
+    backgroundColor: '#1e83d6',
     borderRadius: 15,
     overflow: 'hidden',
     paddingVertical: 8,

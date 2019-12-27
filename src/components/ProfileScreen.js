@@ -6,7 +6,6 @@ import { formatDateEU, ButtonIcon, themeColors } from './common';
 import avatarMale from '../images/Avatar/male.png'
 
 export const ProfileScreen = ({ user }) => {
-  console.log(user)
   const history = useHistory();
   return (
     <ScrollView>

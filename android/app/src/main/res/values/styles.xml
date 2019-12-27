@@ -1,10 +1,77 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="android:textColor">#f0f0f0</item>
-        <item name="android:windowBackground">@color/windowBackgroundColor</item>
-    </style>
+  <!-- Base application theme. -->
+  <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+    <!-- Customize your theme here. -->
+
+      <!-- Body text -->
+    <item name="android:windowBackground">@color/background</item>
+      <!-- Theme color -->
+    <item name="colorAccent">@color/theme</item>
+      <!-- Date Picker -->
+    <item name="android:datePickerStyle">@style/MyDatePicker</item>
+  </style>
+
+    <!-- Permision Dialog -->
+  <style name="DefaultExplainingPermissionsTheme" parent="Theme.AppCompat.Dialog.Alert">
+    <item name="android:background">@color/body</item>
+  </style>
+    <!-- Date Picker -->
+  <style name="MyDatePicker" parent="android:Widget.Material.DatePicker">
+    <!-- <item name="android:datePickerMode">spinner</item> -->
+    <item name="android:headerBackground">@color/theme</item>
+  </style>
 
 </resources>
+<!-- 
+  <style name="AppTheme" parent="Theme.AppCompat">
+    <!- Customize your theme here. ->
+
+      <!- Body text ->
+    <item name="android:textColorPrimary">@color/lightGray</item>
+      
+    <item name="android:textColor">@color/text</item>
+    <item name="android:windowBackground">@color/background</item>
+      <!- Theme color ->
+    <item name="colorAccent">@color/theme</item>
+    
+    <item name="android:dialogTheme">@style/MyDialogTheme</item>
+    <item name="android:datePickerStyle">@style/MyDatePicker</item>
+  </style>
+
+<style name="MyDialogTheme" parent="android:Theme.Material.Dialog">
+    <item name="android:datePickerStyle">@style/MyDatePicker</item>
+</style>
+
+
+
+
+
+
+<item name="android:popupBackground">@color/green</item>
+
+<style name="MyDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+    <item name="android:background">@color/darkblue</item>
+    <item name="android:textColor">@color/red</item>
+    <item name="colorAccent">@color/green</item>
+    <item name="android:textColorAlertDialogListItem">@color/yellow</item>
+  </style>
+
+
+                Spinner Code
+    <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+    <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItem</item>
+  <style name="SpinnerItem">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:background">#993399</item>
+    </style>
+    <style name="SpinnerDropDownItem">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:background">#993399</item>
+    </style>
+
+
+  <style name="DefaultExplainingPermissionsTheme" parent="Theme.AppCompat.Dialog.Alert">
+    <item name="android:background">@color/background</item>
+  </style>
+  !-->
