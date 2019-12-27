@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "16003841720",
+    "firebase_url": "https://auth-690da.firebaseio.com",
+    "project_id": "auth-690da",
+    "storage_bucket": "auth-690da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16003841720:android:6c2648cd7d2c500890fe4d",
+        "android_client_info": {
+          "package_name": "com.reborn2mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "16003841720-q17ovogomtqscb8q1moklb1svjj3ugfu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.reborn2mobile",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "16003841720-eodq3r6g60auqvedpk0t7g7pc4p1uhmt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3LijEyFfmbmsbmfkXiPdZYEyDAM6NsHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "16003841720-eodq3r6g60auqvedpk0t7g7pc4p1uhmt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
