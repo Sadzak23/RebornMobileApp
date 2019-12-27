@@ -35,6 +35,7 @@ export const UserForm = ({ location, setUser }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.error}>{error}</Text>
+      <Text style={styles.label}>Nickname</Text>
       <LoginInput
         iconName='ios-person'
         iconType='ion'
@@ -43,6 +44,7 @@ export const UserForm = ({ location, setUser }) => {
         placeholder='First Name'
         returnKeyType='next'
       />
+      <Text style={styles.label}>First Name</Text>
       <LoginInput
         iconName='ios-person'
         iconType='ion'
@@ -51,6 +53,7 @@ export const UserForm = ({ location, setUser }) => {
         placeholder='First Name'
         returnKeyType='next'
       />
+      <Text style={styles.label}>Last Name</Text>
       <LoginInput
         iconName='ios-person'
         iconType='ion'
@@ -59,12 +62,13 @@ export const UserForm = ({ location, setUser }) => {
         placeholder='Last Name'
         returnKeyType='done'
       />
-      <Text style={{ textAlign: 'center' }}>Set Birthdate</Text>
+      <Text style={styles.label}>Birthdate</Text>
       <DatePicker
         timeStamp={birthdate ? birthdate : 631148400000}
         setDate={setBirthdate}
         btnText={formatDateEU(birthdate ? birthdate : 631148400000)}
       />
+      <Text style={styles.label}>Height</Text>
       <LoginInput
         iconName='altimeter'
         onChange={e => { setHeight(e); setError('') }}
@@ -72,6 +76,7 @@ export const UserForm = ({ location, setUser }) => {
         placeholder='Height'
         returnKeyType='done'
       />
+      <Text style={styles.label}>Weight</Text>
       <LoginInput
         iconName='scale-bathroom'
         onChange={e => { setWeight(e); setError('') }}
@@ -105,13 +110,17 @@ const styles = StyleSheet.create({
     paddingBottom: '30%',
     paddingHorizontal: 50,
   },
+  label: {
+    //marginLeft: 15
+    textAlign: 'center'
+  },
   input: {
-    backgroundColor: themeColors.transparentWhite,
-    flexDirection: 'row',
-    alignItems: 'center',
-    height: 45,
-    borderRadius: 25,
-    marginBottom: 20
+    // backgroundColor: themeColors.transparentWhite,
+    // flexDirection: 'row',
+    // alignItems: 'center',
+    // height: 45,
+    // borderRadius: 25,
+    // marginBottom: 20
   },
   birthdate: {
     color: themeColors.offWhite
