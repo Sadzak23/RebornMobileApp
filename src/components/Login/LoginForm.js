@@ -38,14 +38,20 @@ const LoginForm = () => {
       <View style={styles.loginForm}>
         <Text style={styles.error}>{error}</Text>
         <LoginInput
+          autoFocus
+          autoCompleteType='email'
           iconName='ios-person'
+          iconType='ion'
           onChange={e => { setEmail(e); setError('') }}
           value={email}
+          auto
           placeholder='User / Email'
           returnKeyType='done'
         />
         <LoginInput
+        autoCompleteType='password'
           iconName='ios-lock'
+          iconType='ion'
           onChange={e => { setPassword(e); setError('') }}
           value={password}
           placeholder='Password'
@@ -75,7 +81,6 @@ const fullWidth = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   loginForm: {
     width: fullWidth - 100,
-    paddingBottom: '30%',
   },
   error: {
     color: 'red',

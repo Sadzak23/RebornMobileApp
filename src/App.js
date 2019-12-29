@@ -10,15 +10,15 @@ import AppRouter from './routers/AppRouter';
 import { onSignOut, configureGoogleSignIn } from './components/Login/GoogleLogin';
 
 const store = configureStore()
-
+let provider
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(null)
-
   useEffect(() => {
     configureGoogleSignIn();
     auth().onAuthStateChanged((userData) => {
       if (userData) {
         const userRef = database().ref(`users/${userData.uid}`)
+        provider = userData.providerData[0].providerId
         const setUserData = async () => {
           const user = await userRef.once('value')
           if (user.val()) store.dispatch(setUser(user.val()))
@@ -42,7 +42,6 @@ const App = () => {
             };
             database().ref(`users/${userData.uid}`).update(newUser)
               .then(() => {
-                console.log(newUser)
                 store.dispatch(setUser(newUser))
               })
           }
@@ -73,7 +72,7 @@ const App = () => {
 }
 
 export const onLogout = () => {
-  auth().signOut()
-  onSignOut();
+  auth().signOut();
+  provider === 'google.com' && onSignOut();
 }
 export default App;

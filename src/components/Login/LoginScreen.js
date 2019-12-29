@@ -1,66 +1,97 @@
-import React from 'react';
-import { View, Image, StyleSheet, Dimensions, ImageBackground, KeyboardAvoidingView, ScrollView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Image, StyleSheet, ImageBackground, KeyboardAvoidingView, ScrollView, BackPressEventName, BackHandler } from 'react-native';
 import logo from '../../images/logo.png';
 import backgroundImg from '../../images/backgroundImg.jpg';
+import LoginForm from './LoginForm';
 import { onSignIn } from './GoogleLogin';
-import { ButtonIconText, themeColors } from '../common';
-//import LoginForm from './LoginForm';
+import { ButtonIconText, themeColors, fullWidth, fullHeignt } from '../common';
 
 const LoginScreen = ({ setLoading }) => {
+  const [emailLogin, setEmailLogin] = useState(false)
+  const Screen1 = () => (
+    <View style={styles.container1}>
+      <Image source={logo} style={styles.logo} />
+      <ButtonIconText
+        onPress={() => setEmailLogin(true)}
+        icon='email'
+        iconSize={20}
+        iconStyle={styles.googleIcon}
+        style={styles.btn}
+        text='Sign in with Email'
+      />
+      <ButtonIconText
+        onPress={() => onSignIn(setLoading)}
+        icon='google'
+        iconSize={20}
+        iconStyle={styles.googleIcon}
+        style={styles.btn}
+        text='Sign in with Google'
+      />
+    </View>
+  );
+  const Screen2 = () => (
+    <View style={styles.container2}>
+      <LoginForm />
+      <ButtonIconText
+        onPress={() => setEmailLogin(false)}
+        iconSize={20}
+        iconStyle={styles.googleIcon}
+        style={{ marginTop: 20 }}
+        text='Cancel'
+      />
+    </View>
+  );
+  const onBackPress = () => {
+    setEmailLogin(false)
+    return true
+  }
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', onBackPress);
+    return () => {
+      BackHandler.addEventListener('hardwareBackPress', onBackPress)
+    }
+  }, []);
+
   return (
     <ImageBackground source={backgroundImg} style={styles.background}>
-      <ScrollView>
-        <KeyboardAvoidingView
-          style={styles.container}
-          behavior='padding'
-        >
-          <View style={{ paddingTop: '20%' }}>
-            <Image source={logo} style={styles.logo} />
-            {/*
-            <LoginForm />
-          */}
-            <View style={styles.googleContainer}>
-              <ButtonIconText
-                onPress={() => onSignIn(setLoading)}
-                icon='google'
-                iconSize={20}
-                iconStyle={styles.googleIcon}
-                text='Sign in with Google'
-                style={styles.googleBtn}
-              />
-            </View>
-          </View>
-        </KeyboardAvoidingView>
-      </ScrollView>
+      <View>
+        {!emailLogin ? <Screen1 /> : <Screen2 />}
+      </View>
     </ImageBackground>
   );
 };
-const { width: WIDTH, height: HEIGHT } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    width: WIDTH,
-    height: HEIGHT,
+    width: fullWidth,
+    height: fullHeignt,
     position: 'absolute',
   },
-  container: {
+  container1: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: HEIGHT,
+    height: fullHeignt / 2,
+  },
+  container2: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: fullHeignt / 1.5,
   },
   logo: {
+    marginTop: 50,
     alignSelf: 'center',
   },
-  googleContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 50,
+  btnContainer: {
+    //paddingTop: 30,
+    //paddingBottom: '10%',
   },
-  googleBtn: {
-    backgroundColor: themeColors.themeColor,
-    //borderWidth: 3,
+  btn: {
+    backgroundColor: themeColors.theme2,
+    justifyContent: 'center',
+    marginBottom: 15,
+    width: 300
   },
   googleIcon: {
     marginRight: 15
