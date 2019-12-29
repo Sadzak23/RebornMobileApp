@@ -24,22 +24,15 @@ export const TimersList = () => {
   }));
 
   return (
-    <View style={styles.constuctor}>
-      <View style={{ width: 300 }}>
-        <Text style={styles.title}>Timers</Text>
-        <List list={timersList} />
-      </View>
+    <View>
+      <Text style={styles.title}>Timers</Text>
+      <List list={timersList} />
       <BackButton />
     </View>
   )
 };
 
 const styles = StyleSheet.create({
-  constuctor: {
-    alignItems: 'center',
-    flex: 1,
-    width: 300
-  },
   title: {
     fontSize: 25,
     fontWeight: 'bold',
