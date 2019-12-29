@@ -8,4 +8,5 @@ export * from './Header';
 export * from './Icon';
 export * from './Inputs';
 export * from './List';
+export * from './MiniComponents';
 export * from './Spinner';
