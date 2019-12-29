@@ -38,12 +38,14 @@ export const Footer = () => {
 
 const styles = StyleSheet.create({
   container: {
+    position: 'absolute',
+    bottom: 0,
     backgroundColor: themeColors.header,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 15,
+    justifyContent: 'space-around',
     height: 50,
     width: '100%',
+    elevation: 1
   },
   icon: {
     marginHorizontal: 15,
