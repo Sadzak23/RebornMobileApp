@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-native';
-import { View, ScrollView, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Header, Footer, fullWidth } from '../components/common';
 import { themeColors } from '../components/common/ColorMap';
 
@@ -9,11 +9,9 @@ export const DashboardRoute = ({ path, exact, noBack, component: Component, ...r
     <Route exact={exact} path={path} render={props => (
       <View style={styles.screenContainer}>
         <Header noBack={noBack} />
-        <ScrollView>
-          <View style={styles.componentContent}>
-            <Component {...props} {...rest} />
-          </View>
-        </ScrollView>
+        <View style={styles.componentContent}>
+          <Component {...props} {...rest} />
+        </View>
         <Footer />
       </View>
     )}
@@ -31,7 +29,7 @@ const styles = StyleSheet.create({
   },
   componentContent: {
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 50,
     width: fullWidth
   }
 });
