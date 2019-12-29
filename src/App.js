@@ -26,7 +26,7 @@ const App = () => {
             const newUser = {
               userName: userData.displayName,
               email: userData.email,
-              photoURL: resizeGooglePhoto(userData.photoURL, 250),
+              photoURL: userData.photoURL ? resizeGooglePhoto(userData.photoURL, 250) : '',
               id: userData.uid,
               activeUser: false,
               birthdate: '',
