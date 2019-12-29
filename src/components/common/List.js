@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { useHistory } from 'react-router-native';
 import { ButtonIconText, themeColors } from './';
 import { ButtonText, ButtonSettings } from './Buttons';
+import Icon from './Icon';
 
 export const List = ({ list, listType, iconSize = 23, iconStyle = styles.icon }) => {
   const history = useHistory();
@@ -60,6 +61,54 @@ export const List = ({ list, listType, iconSize = 23, iconStyle = styles.icon })
     </View>
   )
 };
+
+export const ListItem = ({
+  iconName,
+  iconType,
+  iconSize = 25,
+  label,
+  labelStyle,
+  lastInput,
+  style,
+  children,
+}, ) => (
+    <View style={[listItemStyle.container, lastInput && { borderBottomWidth: 2 }, style]}>
+      <View style={listItemStyle.labelContainer}>
+        {!!iconName &&
+          <Icon
+            style={listItemStyle.icon}
+            icon={iconName}
+            type={iconType}
+            size={iconSize}
+          />
+        }
+        <Text style={[listItemStyle.label, labelStyle]}>{label}</Text>
+      </View>
+      {children}
+    </View>
+  )
+
+const listItemStyle = StyleSheet.create({
+  container: {
+    borderColor: themeColors.theme2,
+    borderTopWidth: 2,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingRight: 10,
+  },
+  labelContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  icon: {
+    textAlign: 'center',
+    width: 40,
+  },
+  label: {
+    fontSize: 16,
+  },
+})
 
 const styles = StyleSheet.create({
   container: {
