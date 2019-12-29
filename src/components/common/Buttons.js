@@ -11,33 +11,22 @@ export const ButtonIcon = ({ onPress, icon, iconType, size = 28, color, iconStyl
 };
 
 export const ButtonText = ({ onPress, blankStyle, style, text, textStyle, index }) => {
-  const buttonStyle = {
-    ...(!blankStyle && styles.button),
-    ...style
-  }
-  const buttonText = { ...styles.buttonText, ...textStyle }
+  const buttonStyle = [(!blankStyle && styles.button), style]
   return (
     <TouchableOpacity style={buttonStyle} onPress={onPress}>
-      {!!(index + 1) && <Text style={{ ...buttonText, ...styles.index }}>{index + 1}.</Text>}
-      <Text style={buttonText}>{text}</Text>
+      {!!(index + 1) && <Text style={[styles.buttonText, styles.index]}>{index + 1}.</Text>}
+      <Text style={[styles.buttonText, textStyle]}>{text}</Text>
     </TouchableOpacity>
   )
 };
 
 export const ButtonIconText = ({ onPress, blankStyle, style, text, textStyle, icon, iconType, iconSize = 28, iconStyle }) => {
-  const buttonStyle = {
-    ...(!blankStyle && styles.button),
-    ...style
-  };
-  const textStyles = {
-    ...styles.buttonText,
-    ...textStyle
-  }
+  const buttonStyle = [(!blankStyle && styles.button), style]
   return (
     <TouchableOpacity style={buttonStyle} onPress={onPress}>
       <View style={styles.content}>
         <Icon icon={icon} type={iconType} size={iconSize} style={iconStyle} />
-        <Text style={textStyles}>{text}</Text>
+        <Text style={[styles.buttonText, textStyle]}>{text}</Text>
       </View>
     </TouchableOpacity>
   );
