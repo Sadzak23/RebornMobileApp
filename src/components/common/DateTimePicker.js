@@ -1,23 +1,17 @@
 import React, { useState } from 'react';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { View, StyleSheet } from 'react-native';
-import { ButtonIconText } from './Buttons';
-import { themeColors } from './ColorMap';
+import { View } from 'react-native';
+import { ButtonText } from './Buttons';
 
-export const DatePicker = ({ timeStamp, btnText, setDate }) => {
-  //const [date, setDate] = useState(timeStamp)
+export const DatePicker = ({ timeStamp, btnText, setDate, btnStyle }) => {
   const [show, setShow] = useState(false)
   return (
     <View>
-      <ButtonIconText
-        icon='calendar'
-        iconType='fa'
-        iconSize={20}
-        iconStyle={styles.btnIcon}
-        text={btnText} 
-        textStyle={{color: themeColors.transparentBlack}}
+      <ButtonText
+        text={btnText}
+        textStyle
         blankStyle
-        style={styles.button} 
+        style={btnStyle}
         onPress={() => setShow(true)}
       />
       {show &&
@@ -33,19 +27,3 @@ export const DatePicker = ({ timeStamp, btnText, setDate }) => {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: themeColors.transparentWhite,
-    flexDirection: 'row',
-    alignItems: 'center',
-    height: 45,
-    borderRadius: 25,
-    marginBottom: 20,
-  },
-  btnIcon: {
-    marginHorizontal: 15,
-    color: themeColors.transparentBlack,
-    
-  }
-})
