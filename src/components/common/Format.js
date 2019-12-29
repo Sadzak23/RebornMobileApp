@@ -21,4 +21,17 @@ export const formatDateEU = (timestamp) => {
   return `${day}.${month}.${year}.`
 }
 
-export const resizeGooglePhoto = (url, size) => url.split('=')[0]+`=s${size}`
+export const formatDate_DD_MM_YYYY = (timestamp) => {
+  const day = new Date(timestamp).getDate()
+  const month = new Date(timestamp).getMonth()
+  const year = new Date(timestamp).getFullYear()
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+  return `${add0(day)}.${months[month]}.${year}.`
+}
+
+export const getAge = (timestamp) => {
+  const ageDif = new Date(Date.now() - timestamp)
+  return ageDif.getFullYear() - 1970
+}
+
+export const resizeGooglePhoto = (url, size) => url.split('=')[0] + `=s${size}`
