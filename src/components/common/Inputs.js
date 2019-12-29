@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { View, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { ButtonIcon } from './Buttons';
+import React from 'react';
+import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { themeColors } from './ColorMap';
 import Icon from './Icon';
 
@@ -15,12 +14,16 @@ export const LoginInput = ({
   onTogglePasswordVisibility,
   returnKeyType,
   onSubmitEditing,
+  autoFocus,
+  autoCompleteType,
 }) => {
   return (
     <View>
       <View style={styles.loginContainer}>
         <Icon icon={iconName} type={iconType} size={28} color={'rgba(0, 0, 0, 0.7)'} style={styles.icon} />
         <TextInput
+          autoFocus={autoFocus}
+          autoCompleteType={autoCompleteType}
           style={styles.input}
           autoCorrect={false}
           onChangeText={onChange}
@@ -47,26 +50,6 @@ export const LoginInput = ({
   )
 };
 
-export const DualSelector = ({ value1, value2, onPress }) => {
-  const [status, setStatus] = useState(true)
-  return (
-    <View style={styles.dualSelectorContainer}>
-      <Text style={styles.text}>{value1}</Text>
-      <ButtonIcon
-        onPress={() => {
-          setStatus(!status)
-          onPress
-        }}
-        icon={status ? 'toggle-switch-outline' : 'toggle-switch-off'}
-        size={45}
-        color={themeColors.transparentBlack}
-        iconStyle={{ marginHorizontal: 10 }}
-      />
-      <Text style={styles.text}>{value2}</Text>
-    </View>
-  )
-}
-
 const styles = StyleSheet.create({
   loginContainer: {
     backgroundColor: themeColors.transparentWhite,
@@ -75,13 +58,6 @@ const styles = StyleSheet.create({
     height: 45,
     borderRadius: 25,
     marginBottom: 20,
-  },
-  dualSelectorContainer: {
-    backgroundColor: themeColors.transparentWhite,
-    borderRadius: 25,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   input: {
     flex: 1,
@@ -92,9 +68,5 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginHorizontal: 15,
-  },
-  text: {
-    //color: '#fff',
-    fontSize: 20
   },
 });
