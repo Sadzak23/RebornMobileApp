@@ -5,10 +5,10 @@ import { Header, Footer } from '../components/common';
 import { themeColors } from '../components/common/ColorMap';
 
 export const DashboardRoute = ({ path, exact, noBack, component: Component, ...rest }) => {
-  const [width, setWidth] = useState(Dimensions.get('screen').width)
+  const [width, setWidth] = useState(Dimensions.get('window').width)
   useEffect(() => {
-    Dimensions.addEventListener('change', () => { setWidth(Dimensions.get('screen').width) })
-    return Dimensions.removeEventListener('change', () => { setWidth(Dimensions.get('screen').width) })
+    Dimensions.addEventListener('change', () => { setWidth(Dimensions.get('window').width) })
+    return Dimensions.removeEventListener('change', () => { setWidth(Dimensions.get('window').width) })
   }, []);
 
   const styles = StyleSheet.create({
@@ -17,12 +17,12 @@ export const DashboardRoute = ({ path, exact, noBack, component: Component, ...r
       backgroundColor: themeColors.body,
       flex: 1,
       paddingTop: 60,
-      width: '100%',
+      width: width,
     },
     componentContent: {
       alignItems: 'center',
       marginBottom: 50,
-      width: width
+      width: '100%'
     }
   });
 
