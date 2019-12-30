@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
-import { Icon, themeColors } from './';
+import { Icon } from './Icon';
+import { themeColors } from './ColorMap';
 
 export const ButtonIcon = ({ onPress, icon, iconType, size = 28, color, iconStyle, style = styles.buttonIcon }) => {
   return (

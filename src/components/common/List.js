@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { useHistory } from 'react-router-native';
-import { ButtonIconText, themeColors } from './';
-import { ButtonText, ButtonSettings } from './Buttons';
+import { themeColors } from './ColorMap';
+import { ButtonText, ButtonIconText, ButtonSettings } from './Buttons';
 import Icon from './Icon';
 
 export const List = ({ list, listType, iconSize = 23, iconStyle = styles.icon }) => {

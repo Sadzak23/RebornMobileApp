@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { useHistory } from 'react-router-native';
-import { ButtonIcon } from '../common';
+import { ButtonIcon } from './Buttons';
 import { themeColors } from './ColorMap';
 import logo from '../../images/logo.png';
 
