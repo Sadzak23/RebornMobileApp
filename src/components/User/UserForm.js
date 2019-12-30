@@ -8,7 +8,7 @@ import { setUser } from '../../redux/actions/user';
 import { connect } from 'react-redux';
 import { PhotoChange } from './PhotoChange';
 
-export const UserForm = ({ location, setUser }) => {
+export const UserForm = ({ location, setUser, fullWidth }) => {
   const user = location.state
   const history = useHistory()
   const [showModal, setShowModal] = useState(false)
@@ -38,7 +38,7 @@ export const UserForm = ({ location, setUser }) => {
   }
   return (
     <ScrollView>
-      <View style={styles.container}>
+      <View style={{...styles.container, width: fullWidth}}>
         <PhotoChange user={user} setUser={setUser} showModal={showModal} setShowModal={setShowModal} setPhoto={setPhoto} />
         {!!error && <Text style={styles.error}>{error}</Text>}
         <TouchableOpacity onPress={() => setShowModal(true)}>
@@ -123,12 +123,9 @@ export const UserForm = ({ location, setUser }) => {
   );
 };
 
-const fullWidth = Dimensions.get('window').width;
-
 const styles = StyleSheet.create({
   container: {
-    width: fullWidth,
-    paddingHorizontal: 30,
+    paddingHorizontal: '7%',
     alignItems: 'center'
   },
   formContainer: {
