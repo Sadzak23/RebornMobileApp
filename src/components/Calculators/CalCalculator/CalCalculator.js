@@ -49,7 +49,7 @@ export const CalCalculator = ({ user, fullWidth }) => {
       <View style={{ width: fullWidth, marginBottom: 70 }}>
         <View style={styles.titleContainer}>
           <Text style={componentStyle.title}>Calories Calculator</Text>
-          <Icon size={60} icon={metActivity[activity].icon} type='fa5' style={styles.icon} />
+          <Icon size={50} icon={metActivity[activity].icon} type='fa5' style={styles.icon} />
         </View>
         {/* Calculator Type */}
         <View style={styles.calculatorTypeContainer}>
@@ -142,7 +142,7 @@ const mainContainer = {
   elevation: 20,
 }
 const styles = StyleSheet.create({
-  titleContainer: { backgroundColor: themeColors.themeColor, paddingBottom: 30, elevation: 5 },
+  titleContainer: { backgroundColor: themeColors.themeColor, paddingBottom: 30, elevation: 5, height: 140 },
   widgetContainer: {
     borderBottomRightRadius: 30,
     borderBottomLeftRadius: 30,
@@ -151,12 +151,20 @@ const styles = StyleSheet.create({
     paddingBottom: 60,
     marginHorizontal: 20,
   },
-  icon: { marginTop: -10, paddingBottom: 10, textAlign: 'center' },
+  icon: { marginTop: -20, textAlign: 'center' },
   calculatorTypeContainer: {
     ...mainContainer,
-    marginTop: -30,
-    marginBottom: -30,
-    marginHorizontal: 30,
+    position: 'absolute',
+    height: 50,
+    top: 115,
+    left: 50,
+    right: 50,
+    zIndex: 1
+  },
+  typeSelect: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   listItem: { borderBottomWidth: 2, borderColor: 'rgba(255, 255, 255, 0.5)', },
   listItemBtn: {
@@ -167,11 +175,6 @@ const styles = StyleSheet.create({
   },
   modal: { backgroundColor: themeColors.body, paddingVertical: 10, },
   modalIcon: { width: 40, textAlign: 'center', marginRight: 10 },
-  typeSelect: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
   label: { fontSize: 16 },
   valueText: { fontSize: 18, color: themeColors.offWhite, },
   inputContainer: {
