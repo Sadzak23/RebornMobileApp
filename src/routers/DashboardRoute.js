@@ -1,28 +1,23 @@
-import React, { useState, useEffect} from 'react';
+import React from 'react';
 import { Route } from 'react-router-native';
-import { View, StyleSheet, Dimensions } from 'react-native';
+import { View, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { Header, Footer } from '../components/common';
 import { themeColors } from '../components/common/ColorMap';
 
-export const DashboardRoute = ({ path, exact, noBack, component: Component, ...rest }) => {
-  const [width, setWidth] = useState(Dimensions.get('window').width)
-  useEffect(() => {
-    Dimensions.addEventListener('change', () => { setWidth(Dimensions.get('window').width) })
-    return Dimensions.removeEventListener('change', () => { setWidth(Dimensions.get('window').width) })
-  }, []);
+export const DashboardRoute = ({ path, exact, noBack, fullWidth, component: Component, ...rest }) => {
 
   const styles = StyleSheet.create({
     screenContainer: {
       alignItems: 'center',
       backgroundColor: themeColors.body,
-      flex: 1,
+      // flex: 1,
+      height: Dimensions.get('window').height,
       paddingTop: 60,
-      width: width,
+      width: fullWidth,
     },
     componentContent: {
       alignItems: 'center',
       marginBottom: 50,
-      width: '100%'
     }
   });
 
@@ -31,7 +26,7 @@ export const DashboardRoute = ({ path, exact, noBack, component: Component, ...r
       <View style={styles.screenContainer}>
         <Header noBack={noBack} />
         <View style={styles.componentContent}>
-          <Component {...props} {...rest} fullWidth={width} />
+          <Component {...props} {...rest} fullWidth={fullWidth} />
         </View>
         <Footer />
       </View>

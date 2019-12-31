@@ -105,7 +105,7 @@ export const UserForm = ({ location, setUser, fullWidth }) => {
               >
                 <Text style={styles.text}>Male</Text>
                 <Icon style={{ marginHorizontal: 5 }}
-                  icon={gender === 'female' ? 'toggle-switch-outline' : 'toggle-switch-off'}
+                  icon={gender === 'female' ? 'toggle-switch' : 'toggle-switch-off'}
                   size={45}
                 />
                 <Text style={styles.text}>Female</Text>

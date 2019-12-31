@@ -1,5 +1,5 @@
-import React from 'react';
-import { StatusBar } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StatusBar, Dimensions } from 'react-native';
 import { NativeRouter, Switch } from "react-router-native";
 import { DashboardRoute } from './DashboardRoute';
 import { FullScreenRoute } from './FullScreenRoute';
@@ -15,26 +15,34 @@ import { TimerTest } from '../components/TimerWorkout/TimerTest';
 import { SettingsScreen } from '../components/SettingsScreen';
 import UserForm from '../components/User/UserForm';
 import Play from '../components/Play';
+import CalCalculator from '../components/Calculators/CalCalculator/CalCalculator';
 
 const AppRouter = () => {
+  const [fullWidth, setFullWidth] = useState(Dimensions.get('window').width)
+  useEffect(() => {
+    Dimensions.addEventListener('change', () => { setFullWidth(Dimensions.get('window').width) })
+    return Dimensions.removeEventListener('change', () => { setFullWidth(Dimensions.get('window').width) })
+  }, []);
   return (
     <NativeRouter>
       <StatusBar backgroundColor={themeColors.header} animated />
       <Switch>
-        <DashboardRoute exact path="/" component={HomeScreen} noBack />
-        <DashboardRoute path="/workouts" component={WorkoutsScreen} />
-        <DashboardRoute path="/settings" component={SettingsScreen} />
-
-        <DashboardRoute path="/profile" component={ProfileScreen} />
-        <DashboardRoute path="/user-form" component={UserForm} />
+        <DashboardRoute exact path="/" component={HomeScreen} fullWidth={fullWidth} noBack />
+        <DashboardRoute path="/workouts" component={WorkoutsScreen} fullWidth={fullWidth} />
+        <DashboardRoute path="/settings" component={SettingsScreen} fullWidth={fullWidth} />
+        {/* User */}
+        <DashboardRoute path="/profile" component={ProfileScreen} fullWidth={fullWidth} />
+        <DashboardRoute path="/user-form" component={UserForm} fullWidth={fullWidth} />
         {/* Timers */}
-        <FullScreenRoute path="/workout-timer/:id" component={Timer} />
-        <FullScreenRoute path="/timer-test" component={TimerTest} />
-        <DashboardRoute path="/timers-list" component={TimersList} />
+        <FullScreenRoute path="/workout-timer/:id" component={Timer} fullWidth={fullWidth} />
+        <FullScreenRoute path="/timer-test" component={TimerTest} fullWidth={fullWidth} />
+        <DashboardRoute path="/timers-list" component={TimersList} fullWidth={fullWidth} />
         {/* 5x5 */}
-        <FullScreenRoute path="/workout-5x5" component={Workout5x5} />
+        <FullScreenRoute path="/workout-5x5" component={Workout5x5} fullWidth={fullWidth} />
+        {/* Calculator */}
+        <DashboardRoute path="/calorie-calculator" component={CalCalculator} fullWidth={fullWidth} />
         {/* Playground */}
-        <DashboardRoute path="/play" component={Play} />
+        <DashboardRoute path="/play" component={Play} fullWidth={fullWidth} />
       </Switch>
     </NativeRouter>
   )
