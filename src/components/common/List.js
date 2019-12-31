@@ -90,12 +90,14 @@ export const ListItem = ({
 
 const listItemStyle = StyleSheet.create({
   container: {
-    borderColor: themeColors.theme2,
-    borderTopWidth: 2,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingRight: 10,
+  },
+  border: {
+    borderColor: themeColors.theme2,
+    borderTopWidth: 2,
   },
   labelContainer: {
     flexDirection: 'row',

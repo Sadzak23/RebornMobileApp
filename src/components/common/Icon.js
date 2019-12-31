@@ -4,8 +4,9 @@ import IconFa from 'react-native-vector-icons/FontAwesome';
 import IconFa5 from 'react-native-vector-icons/FontAwesome5';
 import IconMaterial from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconMa from 'react-native-vector-icons/MaterialIcons';
+import { themeColors } from './ColorMap';
 
-export const Icon = ({ icon, type, size = 28, style, color='#fff' }) => {
+export const Icon = ({ icon, type, size = 28, style, color=themeColors.offWhite }) => {
   switch (type) {
     case 'ion': return <IconIon name={icon} size={size} color={color} style={style} />
     case 'fa': return <IconFa name={icon} size={size} color={color} style={style} />

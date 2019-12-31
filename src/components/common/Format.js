@@ -13,6 +13,16 @@ export const formatSeconds = (seconds) => {
     return `${add0(hours)}:${add0(minutes)}:${add0(seconds)}`;
   }
 };
+export const formatMinutes = (min) => {
+  if (min >= 60) {
+    const hours = Math.floor(min / 60);
+    min = min % 60;
+    return `${hours}h:${add0(min)}`;
+  }
+  else {
+    return min;
+  }
+};
 
 export const formatDateEU = (timestamp) => {
   const day = new Date(timestamp).getDate()

@@ -27,6 +27,11 @@ export const Footer = () => {
         iconStyle={styles.icon}
       />
       <ButtonIcon
+        onPress={() => history.push('/calorie-calculator')}
+        icon='calculator'
+        iconStyle={styles.icon}
+      />
+      <ButtonIcon
         onPress={() => history.push('/profile')}
         icon='ios-person'
         iconType='ion'
@@ -43,9 +48,10 @@ const styles = StyleSheet.create({
     backgroundColor: themeColors.header,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    height: 50,
+    height: 80,
     width: '100%',
-    elevation: 1
+    elevation: 20,
+    paddingBottom:30
   },
   icon: {
     marginHorizontal: 15,
