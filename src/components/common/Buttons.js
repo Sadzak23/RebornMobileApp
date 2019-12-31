@@ -50,16 +50,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#1e83d6',
     borderRadius: 15,
     overflow: 'hidden',
-    paddingVertical: 8,
+    paddingVertical: 5,
     alignItems: 'center',
     justifyContent: 'space-around',
     width: '100%',
-    fontSize: 18
   },
-  content: {
-    flexDirection: 'row',
-  },
-  buttonText: { fontSize: 18, fontWeight: 'bold' },
+  content: { flexDirection: 'row' },
+  buttonText: { fontSize: 18, textAlignVertical: 'center', fontWeight: 'bold', color: themeColors.offWhite },
   buttonIcon: { justifyContent: 'space-around', alignItems: 'center' },
   index: {
     fontStyle: 'italic',

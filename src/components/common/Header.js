@@ -5,11 +5,11 @@ import { ButtonIcon } from './Buttons';
 import { themeColors } from './ColorMap';
 import logo from '../../images/logo.png';
 
-export const Header = () => {
+export const Header = ({ noBack }) => {
   const history = useHistory();
   return (
     <View style={styles.container}>
-      <ButtonIcon onPress={() => history.goBack()} icon='arrow-left-bold-circle-outline' />
+      {!noBack && <ButtonIcon onPress={() => history.goBack()} icon='arrow-left-bold-circle-outline' />}
       <Image source={logo} style={styles.logo} />
       <ButtonIcon onPress={() => history.push('/settings')} icon='settings' />
     </View>

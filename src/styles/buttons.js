@@ -20,7 +20,7 @@ export const buttonStyles = StyleSheet.create({
     ...btnStyle,
     backgroundColor: themeColors.theme2,
     position: 'absolute',
-    bottom: 10,
+    bottom: 30,
     right: 0,
     elevation: 5,
     zIndex: 1

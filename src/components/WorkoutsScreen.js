@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { List } from './common';
+import { componentStyle } from '../styles';
 
 export const WorkoutsScreen = () => {
   const workoutsList = [{
@@ -26,17 +27,8 @@ export const WorkoutsScreen = () => {
   }];
   return (
     <View>
-      <Text style={styles.title}>Workouts List</Text>
+      <Text style={componentStyle.title}>Workouts List</Text>
       <List list={workoutsList} listType='iconTextBtn' />
     </View>
   )
 };
-
-const styles = StyleSheet.create({
-  title: {
-    textAlign: 'center',
-    fontSize: 25,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  }
-});

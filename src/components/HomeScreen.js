@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, Image } from 'react-native';
 import logo from '../images/logo.png';
-import { ButtonIconText } from './common';
+import { ButtonIconText, themeColors } from './common';
 import { connect } from 'react-redux';
 
 export const HomeScreen = ({ user }) => {
@@ -17,6 +17,7 @@ export const HomeScreen = ({ user }) => {
 
 const styles = StyleSheet.create({
   text: {
+    color: themeColors.offWhite,
     fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'center'
