@@ -4,7 +4,7 @@ import { GoogleSignin } from 'react-native-google-signin';
 export const configureGoogleSignIn = () => {
   GoogleSignin.configure({
     //scopes: ['https://www.googleapis.com/auth/drive.readonly'],
-    webClientId: '16003841720-eodq3r6g60auqvedpk0t7g7pc4p1uhmt.apps.googleusercontent.com',
+    webClientId: '10500519334-205k8amov83o4oim2h9u0o2fd57r17dt.apps.googleusercontent.com',
   });
 };
 

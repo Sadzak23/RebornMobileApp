@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "16003841720",
-    "firebase_url": "https://auth-690da.firebaseio.com",
-    "project_id": "auth-690da",
-    "storage_bucket": "auth-690da.appspot.com"
+    "project_number": "10500519334",
+    "firebase_url": "https://reborn-fitness.firebaseio.com",
+    "project_id": "reborn-fitness",
+    "storage_bucket": "reborn-fitness.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:16003841720:android:6c2648cd7d2c500890fe4d",
+        "mobilesdk_app_id": "1:10500519334:android:f1c783cb8c8e190a8b4b67",
         "android_client_info": {
           "package_name": "com.reborn2mobile"
         }
       },
       "oauth_client": [
         {
-          "client_id": "16003841720-q17ovogomtqscb8q1moklb1svjj3ugfu.apps.googleusercontent.com",
+          "client_id": "10500519334-a9v1v0snc4q1qc44ivr7piaiojnbg6ft.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.reborn2mobile",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "16003841720-eodq3r6g60auqvedpk0t7g7pc4p1uhmt.apps.googleusercontent.com",
+          "client_id": "10500519334-205k8amov83o4oim2h9u0o2fd57r17dt.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB3LijEyFfmbmsbmfkXiPdZYEyDAM6NsHQ"
+          "current_key": "AIzaSyCX4UG-629azTre7-TUjvh8sJdZWck7gIM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "16003841720-eodq3r6g60auqvedpk0t7g7pc4p1uhmt.apps.googleusercontent.com",
+              "client_id": "10500519334-205k8amov83o4oim2h9u0o2fd57r17dt.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
