@@ -8,6 +8,12 @@ export const componentStyle = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 10,
-    marginBottom: 20
+    marginBottom: 10
+  },
+  subtitle: {
+    color: themeColors.offWhite,
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
   }
 })

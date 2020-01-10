@@ -14,8 +14,8 @@ import { Timer } from '../components/TimerWorkout/Timer';
 import { TimerTest } from '../components/TimerWorkout/TimerTest';
 import { SettingsScreen } from '../components/SettingsScreen';
 import UserForm from '../components/User/UserForm';
-import Play from '../components/Play';
 import CalCalculator from '../components/Calculators/CalCalculator/CalCalculator';
+import WeightsForm5x5 from '../components/5x5/WeightsForm5x5';
 
 const AppRouter = () => {
   const [fullWidth, setFullWidth] = useState(Dimensions.get('window').width)
@@ -39,10 +39,9 @@ const AppRouter = () => {
         <DashboardRoute path="/timers-list" component={TimersList} fullWidth={fullWidth} />
         {/* 5x5 */}
         <FullScreenRoute path="/workout-5x5" component={Workout5x5} fullWidth={fullWidth} />
+        <FullScreenRoute path="/weights-form5x5" component={WeightsForm5x5} fullWidth={fullWidth} />
         {/* Calculator */}
         <DashboardRoute path="/calorie-calculator" component={CalCalculator} fullWidth={fullWidth} />
-        {/* Playground */}
-        <DashboardRoute path="/play" component={Play} fullWidth={fullWidth} />
       </Switch>
     </NativeRouter>
   )

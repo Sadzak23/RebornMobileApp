@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import { connect } from 'react-redux';
 import logo from '../images/logo.png';
 import { ButtonIconText, themeColors } from './common';
-import { connect } from 'react-redux';
 
 export const HomeScreen = ({ user }) => {
   return (

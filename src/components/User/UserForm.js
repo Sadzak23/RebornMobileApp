@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Dimensions, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import database from '@react-native-firebase/database';
 import { useHistory, BackButton } from 'react-router-native';
-import ImagePicker from 'react-native-image-crop-picker';
 import { themeColors, ButtonIcon, DatePicker, formatDateEU, ListItem, Icon } from '../common';
 import { setUser } from '../../redux/actions/user';
 import { connect } from 'react-redux';
 import { PhotoChange } from './PhotoChange';
+import { inputStyles } from '../../styles';
 
 export const UserForm = ({ location, setUser, fullWidth }) => {
   const user = location.state
@@ -46,21 +46,21 @@ export const UserForm = ({ location, setUser, fullWidth }) => {
         </TouchableOpacity>
         <View style={styles.formContainer}>
           <ListItem iconName='ios-person' iconType='ion' label='Nickname' children={
-            <TextInput autoCorrect={false} style={styles.input}
+            <TextInput autoCorrect={false} style={inputStyles.input}
               onChangeText={(e) => setUserName(e)}
               value={userName}
               placeholder='Anonimous'
             />}
           />
           <ListItem label='First Name' iconName='ios-person' iconType='ion' children={
-            <TextInput autoCorrect={false} style={styles.input}
+            <TextInput autoCorrect={false} style={inputStyles.input}
               onChangeText={(e) => setFirstName(e)}
               value={firstName}
               placeholder='Anonimous'
             />}
           />
           <ListItem label='Last Name' iconName='ios-person' iconType='ion' children={
-            <TextInput autoCorrect={false} style={styles.input}
+            <TextInput autoCorrect={false} style={inputStyles.input}
               onChangeText={(e) => setLastName(e)}
               value={lastName}
               placeholder='Anonimous'
@@ -71,12 +71,12 @@ export const UserForm = ({ location, setUser, fullWidth }) => {
               timeStamp={birthdate ? birthdate : 631148400000}
               setDate={setBirthdate}
               btnText={formatDateEU(birthdate ? birthdate : 631148400000)}
-              btnStyle={styles.input}
+              btnStyle={inputStyles.input}
             />}
           />
           <ListItem label='Height' iconName='altimeter' children={
-            <View style={{ ...styles.input, flexDirection: 'row' }}>
-              <TextInput autoCorrect={false} style={styles.inputLabel}
+            <View style={inputStyles.input}>
+              <TextInput autoCorrect={false} style={inputStyles.inputLabel}
                 onChangeText={(e) => setHeight(e)}
                 value={height}
                 placeholder='0'
@@ -86,8 +86,8 @@ export const UserForm = ({ location, setUser, fullWidth }) => {
           }
           />
           <ListItem label='Weight' iconName='scale-bathroom' children={
-            <View style={{ ...styles.input, flexDirection: 'row' }}>
-              <TextInput autoCorrect={false} style={styles.inputLabel}
+            <View style={inputStyles.input}>
+              <TextInput autoCorrect={false} style={inputStyles.inputLabel}
                 onChangeText={(e) => setWeight(e)}
                 value={weight}
                 placeholder='0'
@@ -95,17 +95,17 @@ export const UserForm = ({ location, setUser, fullWidth }) => {
               <Text>cm</Text>
             </View>
           } />
-          <ListItem label='Gender' lastInput
-            iconName={gender === 'male' ? 'male' : 'female'}
+          <ListItem label='Gender'
+            iconName={gender === 'female' ? 'female' : 'male'}
             iconType='fa'
             children={
               <TouchableOpacity
-                style={{ ...styles.input, flexDirection: 'row', borderWidth: 0 }}
+                style={{ ...inputStyles.input, borderWidth: 0 }}
                 onPress={() => setGender(gender === 'male' ? 'female' : 'male')}
               >
                 <Text style={styles.text}>Male</Text>
                 <Icon style={{ marginHorizontal: 5 }}
-                  icon={gender === 'female' ? 'toggle-switch' : 'toggle-switch-off'}
+                  icon={gender === 'female' ? 'toggle-switch' : gender === 'male' ? 'toggle-switch-off' : 'cloud-question'}
                   size={45}
                 />
                 <Text style={styles.text}>Female</Text>
@@ -126,29 +126,12 @@ export const UserForm = ({ location, setUser, fullWidth }) => {
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: '7%',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: 50,
   },
   formContainer: {
     marginVertical: 20,
     width: '100%'
-  },
-  input: {
-    fontSize: 16,
-    textAlign: 'center',
-    borderWidth: 1,
-    borderRadius: 20,
-    marginVertical: 10,
-    borderColor: themeColors.offWhite,
-    height: 50,
-    width: 150,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  inputLabel: {
-    textAlign: 'right',
-    fontSize: 20,
-    width: 50
   },
   submitBtn: {
     backgroundColor: themeColors.themeColor,
@@ -157,7 +140,7 @@ const styles = StyleSheet.create({
     borderColor: themeColors.offWhite,
     paddingVertical: 10,
     marginHorizontal: 5,
-    marginVertical: 20,
+    marginVertical: 0,
     alignItems: 'center',
     flex: 1,
     width: '100%',

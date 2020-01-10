@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route } from 'react-router-native';
-import { View, StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
+import Orientation from 'react-native-orientation-locker';
 import { Header, Footer } from '../components/common';
 import { themeColors } from '../components/common/ColorMap';
 
 export const DashboardRoute = ({ path, exact, noBack, fullWidth, component: Component, ...rest }) => {
+  useEffect(() => {
+    Orientation.lockToPortrait();
+    return () => Orientation.unlockAllOrientations();
+    }, [])
 
   const styles = StyleSheet.create({
     screenContainer: {

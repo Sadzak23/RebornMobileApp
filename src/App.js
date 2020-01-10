@@ -37,7 +37,7 @@ const App = () => {
               lastName: '',
               weight: '',
               workouts: {
-                history: []
+                history: ''
               }
             };
             database().ref(`users/${userData.uid}`).update(newUser)

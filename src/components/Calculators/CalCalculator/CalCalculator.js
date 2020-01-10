@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     paddingBottom: 60,
     marginHorizontal: 20,
   },
-  icon: { marginTop: -20, textAlign: 'center' },
+  icon: { marginTop: -5, textAlign: 'center' },
   calculatorTypeContainer: {
     ...mainContainer,
     position: 'absolute',
