@@ -6,6 +6,7 @@ export let themeColors = {
   offBlack: '#333',
   themeColor: '#1e83d6',
   theme2: '#157396',
+  transparentBody: 'rgba(63, 76, 92, 0.8)',
   transparentWhite: 'rgba(255, 255, 255, 0.7)',
   transparentBlack: 'rgba(0, 0, 0, 0.7)',
 }

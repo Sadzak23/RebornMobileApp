@@ -7,7 +7,7 @@ export const BmiCalculator = ({ height, weight }) => {
   const bmiRound = Math.round(bmi * 10) / 10
   return (
     <View style={{ marginVertical: 20 }}>
-      {height && weight ? <ValueUnit value={bmiRound} unit='kg/cm2' /> : <Text>Please enter height & weight</Text>}
+      {height && weight ? <ValueUnit value={bmiRound} unit='kg/m2' /> : <Text>Please enter height & weight</Text>}
     </View>
   )
 };

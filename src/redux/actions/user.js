@@ -10,3 +10,12 @@ export const setUser = ({
 export const logout = () => ({
   type: 'LOGOUT'
 });
+
+//////////////////////////////// Strong Lifts ///////////////////////////////////
+
+// SET/EDIT/SAVE_WORKOUT_5X5
+export const setEditData5x5 = (user, data) => ({
+  type: 'SET/EDIT/SAVE_WORKOUT_5X5',
+  user,
+  data
+});

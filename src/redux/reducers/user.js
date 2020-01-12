@@ -6,15 +6,24 @@ export default (state = {}, action) => {
         email: action.email,
         photoURL: action.photoURL,
         id: action.id,
-        activeUser: false,
         birthdate: action.birthdate,
         firstName: action.firstName,
         gender: action.gender,
         height: action.height,
-        index: action.index,
         lastName: action.lastName,
         weight: action.weight,
         workouts: action.workouts
+      };
+    case 'SET/EDIT/SAVE_WORKOUT_5X5':
+      return {
+        ...action.user,
+        workouts: {
+          ...action.user.workouts,
+          strongLifts: {
+            ...action.user.workouts.strongLifts,
+            ...action.data,
+          },
+        }
       };
     case 'Logout':
       return {};

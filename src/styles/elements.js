@@ -38,7 +38,12 @@ export const modalStyles = StyleSheet.create({
     fontSize: 20,
     color: themeColors.offWhite,
   },
-  confirmBtn: {    
+  input: {
+    ...inputStyles.input,
+    elevation: 20,
+    backgroundColor: themeColors.theme2
+  },
+  confirmBtn: {
     borderWidth: 1,
     borderRadius: 20,
     marginVertical: 10,
@@ -46,7 +51,7 @@ export const modalStyles = StyleSheet.create({
   btnText: {
     fontSize: 20,
     fontWeight: 'bold',
-    textAlign: 'center',    
+    textAlign: 'center',
     color: themeColors.offWhite,
     paddingVertical: 3,
   }

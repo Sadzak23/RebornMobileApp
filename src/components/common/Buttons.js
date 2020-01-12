@@ -21,13 +21,16 @@ export const ButtonText = ({ onPress, blankStyle, style, text, textStyle, index 
   )
 };
 
-export const ButtonIconText = ({ onPress, blankStyle, style, text, textStyle, icon, iconType, iconSize = 28, iconStyle }) => {
-  const buttonStyle = [(!blankStyle && styles.button), style]
+export const ButtonIconText = ({ onPress, blankStyle, style, text, textStyle, icon, iconType, iconSize = 28, iconStyle, disabled }) => {
+  const buttonStyle = [(!blankStyle && styles.button), style, disabled && styles.disabled]
+  const iconStyles = [{ alignSelf: 'center' }, iconStyle, disabled && styles.disabledText]
   return (
-    <TouchableOpacity style={buttonStyle} onPress={onPress}>
+    <TouchableOpacity disabled={disabled}
+      style={buttonStyle}
+      onPress={onPress}>
       <View style={styles.content}>
-        <Icon icon={icon} type={iconType} size={iconSize} style={iconStyle} />
-        <Text style={[styles.buttonText, textStyle]}>{text}</Text>
+        <Icon icon={icon} type={iconType} size={iconSize} style={iconStyles} />
+        <Text style={[styles.buttonText, textStyle, disabled && styles.disabledText]}>{text}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -54,10 +57,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     width: '100%',
+    elevation: 10
   },
+  disabled: { backgroundColor: 'rgba(21, 115, 150, 0.5)', },
+  disabledText: { color: 'rgba(255, 255, 255, 0.5)' },
   content: { flexDirection: 'row' },
   buttonText: { fontSize: 18, textAlignVertical: 'center', fontWeight: 'bold', color: themeColors.offWhite },
-  buttonIcon: { justifyContent: 'space-around', alignItems: 'center' },
+  buttonIcon: { justifyContent: 'center', alignItems: 'center' },
   index: {
     fontStyle: 'italic',
     marginRight: 8

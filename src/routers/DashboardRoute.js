@@ -15,8 +15,7 @@ export const DashboardRoute = ({ path, exact, noBack, fullWidth, component: Comp
     screenContainer: {
       alignItems: 'center',
       backgroundColor: themeColors.body,
-      // flex: 1,
-      height: Dimensions.get('window').height,
+      height: '100%',
       paddingTop: 60,
       width: fullWidth,
     },

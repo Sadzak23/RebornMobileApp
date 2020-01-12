@@ -12,10 +12,7 @@ export const ProfileScreen = ({ user, fullWidth }) => {
   return (
     <View>
       <ButtonIcon icon='user-edit' iconType='fa5' style={buttonStyles.floatingBtn}
-        onPress={() => history.push({
-          pathname: '/user-form',
-          state: user
-        })} />
+        onPress={() => history.push({ pathname: '/user-form', state: user })} />
       <ScrollView>
         <View style={{...styles.container, width: '100%'}}>
           <View style={{...styles.nameContainer, width: fullWidth}}>
@@ -65,13 +62,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     paddingHorizontal: 40,
-    height: 1500
-  },
-  avatarContainer: {
-    marginTop: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start'
   },
   avatarContainer: {
     borderWidth: 3,
@@ -88,7 +78,6 @@ const styles = StyleSheet.create({
   },
   nameContainer: {
     backgroundColor: themeColors.themeColor,
-    marginHorizontal: 10,
     alignItems: 'center',
     marginBottom: 10,
     paddingBottom: 50,
@@ -97,11 +86,9 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
     color: themeColors.offWhite,
-    paddingBottom: 10,
   },
   email: {
     fontSize: 16,
-    marginTop: -10,
   },
   newCont: {
     backgroundColor: themeColors.theme2,
@@ -145,15 +132,6 @@ const styles = StyleSheet.create({
   value: {
     fontSize: 25,
     color: themeColors.offWhite
-  },
-  btnsContainer: {
-    backgroundColor: themeColors.themeColor,
-    borderRadius: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: 20,
-    height: 70,
-    width: 70,
   },
 });
 

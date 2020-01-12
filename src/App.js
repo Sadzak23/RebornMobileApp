@@ -28,12 +28,10 @@ const App = () => {
               email: userData.email,
               photoURL: userData.photoURL ? resizeGooglePhoto(userData.photoURL, 250) : '',
               id: userData.uid,
-              activeUser: false,
               birthdate: '',
               firstName: '',
               gender: '',
               height: '',
-              index: '',
               lastName: '',
               weight: '',
               workouts: {
