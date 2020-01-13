@@ -4,19 +4,6 @@ import { ButtonText, themeColors } from '../common';
 
 export const Exercise5x5 = ({ exerciseName, exerciseWeight, exerciseNo, exerciseSets, onRepCount }) => {
   const sets = [1, 2, 3, 4, 5]
-  // useEffect(() => {
-  //   const element = document.getElementById(exerciseName)
-  //   if (exerciseSets.done === "5x5") {
-  //     element.classList.remove('almost');
-  //     element.classList.add('done');
-  //   } else if (exerciseSets.done === "almost") {
-  //     element.classList.remove('done');
-  //     element.classList.add('almost');
-  //   } else {
-  //     element.classList.remove('done');
-  //     element.classList.remove('almost');
-  //   }
-  // });
 
   const bottomMessage = () => {
     switch (exerciseSets.done) {
@@ -30,7 +17,10 @@ export const Exercise5x5 = ({ exerciseName, exerciseWeight, exerciseNo, exercise
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container,
+    exerciseSets.done === 'almost' && { backgroundColor: 'rgba(122, 78, 18, 0.9)' },
+    exerciseSets.done === '5x5' && { backgroundColor: 'rgba(24, 134, 97, 0.9)' },
+    ]}>
       <View style={styles.data}>
         <Text style={styles.text}>{exerciseName}</Text>
         <Text style={styles.text}>5x5 {exerciseWeight}kg</Text>
@@ -40,9 +30,9 @@ export const Exercise5x5 = ({ exerciseName, exerciseWeight, exerciseNo, exercise
           <ButtonText
             onPress={() => onRepCount(exerciseNo, `set${set}`)}
             text={exerciseSets[`set${set}`]}
-            style={styles.btn}
+            style={[styles.btn, !!exerciseSets.done && { backgroundColor: '#aaa' }]}
             key={exerciseName + set}
-            textStyle={{ fontSize: 25 }}
+            textStyle={[{ fontSize: 25 }, !!exerciseSets.done && { color: themeColors.offBlack }]}
             blankStyle
           />
         ))}
@@ -59,6 +49,7 @@ const styles = StyleSheet.create({
     padding: 15,
     marginVertical: 5,
     backgroundColor: themeColors.transparentBody,
+    width: '100%'
   },
   data: {
     flexDirection: 'row',
@@ -86,5 +77,5 @@ const styles = StyleSheet.create({
   message: {
     textAlign: 'center',
     fontSize: 12
-  }
+  },
 })
