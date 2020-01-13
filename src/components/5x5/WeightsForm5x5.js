@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, StatusBar, ScrollView, TextInput, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, StatusBar, ScrollView, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { useHistory, BackButton } from 'react-router-native';
 import database from '@react-native-firebase/database';
 import Modal, { ModalContent, ScaleAnimation } from 'react-native-modals';
 import Orientation from 'react-native-orientation-locker';
-import backgroundImg from '../../images/female-5x5.jpg';
-import { themeColors, ButtonText, ConfirmFooter } from '../common';
-import { componentStyle, modalStyles } from '../../styles';
+import { themeColors, ButtonText, ConfirmFooter, modalStyles } from '../common';
+import { componentStyle } from '../../styles';
 import { setEditData5x5 } from '../../redux/actions/user';
 
 export const WeightsForm = ({ location, user=location.state, setEditData5x5 }) => {

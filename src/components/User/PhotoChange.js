@@ -67,10 +67,6 @@ const styles = StyleSheet.create({
   },
 })
 const modalStyles = StyleSheet.create({
-  background: {
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
-    flex: 1
-  },
   title: {
     textAlign: 'center',
     fontSize: 20,
