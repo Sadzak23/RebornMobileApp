@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { BackButton } from 'react-router-native';
 import { timers } from '../../data';
 import { List } from '../common';
+import { componentStyle } from '../../styles';
 
 export const TimersList = () => {
   let timersList = [];
@@ -25,19 +26,14 @@ export const TimersList = () => {
 
   return (
     <View>
-      <Text style={styles.title}>Timers</Text>
+      <Text style={componentStyle.title}>Timers</Text>
       <List list={timersList} />
       <BackButton />
     </View>
   )
 };
 
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 25,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    textAlign: 'center',
-  }
-});
+// const styles = StyleSheet.create({
+  
+// });
 
