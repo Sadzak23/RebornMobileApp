@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { themeColors } from '../components/common';
+import { themeColors } from '../components/common/ColorMap';
 
 export const inputStyles = StyleSheet.create({
   input: {
@@ -22,37 +22,3 @@ export const inputStyles = StyleSheet.create({
   },
 })
 
-export const modalStyles = StyleSheet.create({
-  modal: {
-    backgroundColor: themeColors.theme2,
-    borderRadius: 30,
-    marginVertical: 20,
-  },
-  container: {
-    paddingVertical: 15,
-    paddingHorizontal: 25,
-  },
-  title: {
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 20,
-    color: themeColors.offWhite,
-  },
-  input: {
-    ...inputStyles.input,
-    elevation: 20,
-    backgroundColor: themeColors.theme2
-  },
-  confirmBtn: {
-    borderWidth: 1,
-    borderRadius: 20,
-    marginVertical: 10,
-  },
-  btnText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: themeColors.offWhite,
-    paddingVertical: 3,
-  }
-})

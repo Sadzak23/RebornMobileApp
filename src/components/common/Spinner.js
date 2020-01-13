@@ -1,10 +1,9 @@
 import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
 
-export const Spinner = ({ size='large', color, marginVertical, backgroundColor='#3f4c5c' }) => {
+export const Spinner = ({ size='large', color, marginVertical }) => {
   const style = {
     spinnerStyle: {
-      //backgroundColor: backgroundColor,
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
