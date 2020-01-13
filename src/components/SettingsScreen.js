@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { List } from './common';
-import { onLogout } from '../App';
+// import { onLogout } from '../App';
 import Sound from 'react-native-sound';
 import Beep from '../sounds/beep.mp3'
 
-export const SettingsScreen = ({ }) => {
+export const SettingsScreen = ({ onLogout }) => {
   const [DarkMode, setDarkMode] = useState(true)
   const onDarkModeToggle = () => {
     setDarkMode(!DarkMode);

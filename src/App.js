@@ -57,7 +57,7 @@ const App = () => {
       case true:
         return (
           <Provider store={store}>
-            <AppRouter />
+            <AppRouter onLogout={onLogout} />
           </Provider>
         )
       case false:
@@ -69,7 +69,7 @@ const App = () => {
   return renderContent()
 }
 
-export const onLogout = () => {
+const onLogout = () => {
   auth().signOut();
   provider === 'google.com' && onSignOut();
 }
