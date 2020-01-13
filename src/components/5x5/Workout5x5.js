@@ -185,6 +185,7 @@ export class Workout5x5 extends React.Component {
           setVisible={e => this.setState({ showSaveModal: e })}
           onConfirm={this.onWorkoutSave}
           isLoading={this.state.isLoading}
+          width={300}
         />
         <ModalConfirm
           title='Are you sure you want to quit?'

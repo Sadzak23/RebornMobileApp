@@ -6,14 +6,14 @@ import { ButtonText } from './Buttons';
 import { inputStyles } from '../../styles/elements';
 import { Spinner } from './Spinner';
 
-export const ModalConfirm = ({ visible, setVisible, title, subtitle, onConfirm, confirmText = 'Save', cancelText = 'Cancel', isLoading }) => (
+export const ModalConfirm = ({ visible, setVisible, title, subtitle, onConfirm, confirmText = 'Save', cancelText = 'Cancel', isLoading, width }) => (
   <Modal visible={visible}
     modalAnimation={new ScaleAnimation()}
     modalStyle={modalStyles.modal}
     onTouchOutside={() => setVisible(false)}
     onHardwareBackPress={() => setVisible(false)}
   >
-    <ModalContent style={modalStyles.container}>
+    <ModalContent style={[modalStyles.container, {width}]}>
       <Text style={modalStyles.title}>{title}</Text>
       {subtitle && <Text style={modalStyles.subtitle}>{subtitle}</Text>}
       {isLoading ?
@@ -32,31 +32,14 @@ export const ModalConfirm = ({ visible, setVisible, title, subtitle, onConfirm, 
 );
 
 export const modalStyles = StyleSheet.create({
-  btnsContainer: {
-    flexDirection: 'row',
-    marginTop: 20,
-    justifyContent: 'space-around',
-    width: '100%',
-    height: 40,
-  },
-  btn: {
-    backgroundColor: themeColors.themeColor,
-    borderRadius: 30,
-    elevation: 5,
-    width: '40%',
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
   modal: {
     backgroundColor: themeColors.theme2,
     borderRadius: 30,
     marginVertical: 20,
-    justifyContent: 'center',
+    maxWidth: '90%',
   },
   container: {
     paddingVertical: 15,
-    width: 300
   },
   title: {
     textAlign: 'center',
@@ -73,6 +56,22 @@ export const modalStyles = StyleSheet.create({
     ...inputStyles.input,
     elevation: 20,
     backgroundColor: themeColors.theme2
+  },
+  btnsContainer: {
+    flexDirection: 'row',
+    marginTop: 20,
+    justifyContent: 'space-around',
+    width: '100%',
+    height: 40,
+  },
+  btn: {
+    backgroundColor: themeColors.themeColor,
+    borderRadius: 30,
+    elevation: 5,
+    width: '40%',
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   btnText: {
     fontSize: 20,
