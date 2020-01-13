@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Image, StyleSheet, ImageBackground, KeyboardAvoidingView, ScrollView, BackPressEventName, BackHandler } from 'react-native';
+import { View, Image, StyleSheet, ImageBackground, BackHandler } from 'react-native';
 import logo from '../../images/logo.png';
 import backgroundImg from '../../images/backgroundImg.jpg';
 import LoginForm from './LoginForm';
@@ -82,10 +82,6 @@ const styles = StyleSheet.create({
   logo: {
     marginTop: 50,
     alignSelf: 'center',
-  },
-  btnContainer: {
-    //paddingTop: 30,
-    //paddingBottom: '10%',
   },
   btn: {
     backgroundColor: themeColors.theme2,

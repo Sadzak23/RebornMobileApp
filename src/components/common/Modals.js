@@ -6,35 +6,30 @@ import { ButtonText } from './Buttons';
 import { inputStyles } from '../../styles/elements';
 import { Spinner } from './Spinner';
 
-export const ModalConfirm = ({ visible, setVisible, title, subtitle, onConfirm, isLoading }) => {
-  useEffect(() => {
-    return setVisible(false)
-  }, [])
-  return (
-    <Modal visible={visible}
-      modalAnimation={new ScaleAnimation()}
-      modalStyle={modalStyles.modal}
-      onTouchOutside={() => setVisible(false)}
-      onHardwareBackPress={() => setVisible(false)}
-    >
-      <ModalContent style={modalStyles.container}>
-        <Text style={modalStyles.title}>{title}</Text>
-        {subtitle && <Text style={modalStyles.subtitle}>{subtitle}</Text>}
-        {isLoading ?
-          <Spinner marginVertical={30} color={themeColors.offWhite} /> :
-          <View style={modalStyles.btnsContainer}>
-            <ButtonText blankStyle style={modalStyles.btn}
-              text='Cancel' onPress={() => setVisible(false)}
-            />
-            <ButtonText blankStyle style={modalStyles.btn}
-              text='Save' onPress={onConfirm}
-            />
-          </View>
-        }
-      </ModalContent>
-    </Modal>
-  )
-};
+export const ModalConfirm = ({ visible, setVisible, title, subtitle, onConfirm, confirmText = 'Save', cancelText = 'Cancel', isLoading }) => (
+  <Modal visible={visible}
+    modalAnimation={new ScaleAnimation()}
+    modalStyle={modalStyles.modal}
+    onTouchOutside={() => setVisible(false)}
+    onHardwareBackPress={() => setVisible(false)}
+  >
+    <ModalContent style={modalStyles.container}>
+      <Text style={modalStyles.title}>{title}</Text>
+      {subtitle && <Text style={modalStyles.subtitle}>{subtitle}</Text>}
+      {isLoading ?
+        <Spinner marginVertical={30} color={themeColors.offWhite} /> :
+        <View style={modalStyles.btnsContainer}>
+          <ButtonText blankStyle style={modalStyles.btn}
+            text={cancelText} onPress={() => setVisible(false)}
+          />
+          <ButtonText blankStyle style={modalStyles.btn}
+            text={confirmText} onPress={onConfirm}
+          />
+        </View>
+      }
+    </ModalContent>
+  </Modal>
+);
 
 export const modalStyles = StyleSheet.create({
   btnsContainer: {

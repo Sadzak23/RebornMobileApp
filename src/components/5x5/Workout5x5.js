@@ -14,7 +14,8 @@ export class Workout5x5 extends React.Component {
     this.timer = React.createRef()
     this.user = this.props.location.state
     this.state = {
-      showModal: false,
+      showSaveModal: false,
+      showQuitModal: false,
       isLoading: false,
       workout: {
         type: this.props.location.state.workouts.strongLifts.trainingType,
@@ -124,10 +125,14 @@ export class Workout5x5 extends React.Component {
     this.setState({ isLoading: true })
     await database().ref(`users/${this.user.id}/workouts`).update({ ...data })
     this.props.addWorkout5x5(this.user, data);
-    this.setState({ isLoading: false, showModal: false })
+    this.setState({ isLoading: false, showSaveModal: false })
     this.props.history.goBack();
   };
-
+  onQuit = async () => {    
+    await this.setState({ showQuitModal: false });
+    this.props.history.goBack();
+  }
+  
   componentWillUnmount() {
     this.stopTimer();
   };
@@ -166,8 +171,9 @@ export class Workout5x5 extends React.Component {
           confirmText='Save Workout'
           confirmIcon='save'
           confirmIconType='fa5'
-          onConfirm={() => this.setState({ showModal: true })}
+          onConfirm={() => this.setState({ showSaveModal: true })}
           disableConfirm={!(this.state.workout.exercise1.done && this.state.workout.exercise2.done && this.state.workout.exercise3.done)}
+          onCancel={() => this.setState({ showQuitModal: true })}
           cancelText='Quit'
           cancelIcon='ban'
           cancelIconType='fa5'
@@ -175,10 +181,18 @@ export class Workout5x5 extends React.Component {
         <ModalConfirm
           title='Well Done!'
           subtitle='Would you like to save your workout?'
-          visible={this.state.showModal}
-          setVisible={e => this.setState({ showModal: e })}
+          visible={this.state.showSaveModal}
+          setVisible={e => this.setState({ showSaveModal: e })}
           onConfirm={this.onWorkoutSave}
           isLoading={this.state.isLoading}
+        />
+        <ModalConfirm
+          title='Are you sure you want to quit?'
+          subtitle='Your progress will not be saved?!'
+          visible={this.state.showQuitModal}
+          setVisible={e => this.setState({ showQuitModal: e })}
+          onConfirm={this.onQuit}
+          confirmText='Quit'
         />
         <BackButton />
       </View>
