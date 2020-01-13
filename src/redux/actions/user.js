@@ -19,3 +19,9 @@ export const setEditData5x5 = (user, data) => ({
   user,
   data
 });
+
+export const addWorkout5x5 = (user, data) => ({
+  type: 'ADD_WORKOUT_5X5',
+  user,
+  data
+});

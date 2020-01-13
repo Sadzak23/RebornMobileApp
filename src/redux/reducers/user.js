@@ -25,6 +25,21 @@ export default (state = {}, action) => {
           },
         }
       };
+    case 'ADD_WORKOUT_5X5':
+      return {
+        ...action.user,
+        workouts: {
+          ...action.user.workouts,
+          strongLifts: {
+            ...action.user.workouts.strongLifts,
+            ...action.data.strongLifts
+          },
+          history: {
+            ...action.user.workouts.history,
+            ...action.data.history
+          }
+        }
+      }
     case 'Logout':
       return {};
     default:
