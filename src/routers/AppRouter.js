@@ -16,6 +16,7 @@ import UserForm from '../components/User/UserForm';
 import Play from '../../1play/Play';
 import CalCalculator from '../components/Calculators/CalCalculator/CalCalculator';
 import WeightsForm5x5 from '../components/5x5/WeightsForm5x5';
+import { HeartRate } from '../components/HeartRate/hr';
 
 const AppRouter = ({ onLogout }) => {
   const [fullWidth, setFullWidth] = useState(Dimensions.get('window').width)
@@ -32,7 +33,7 @@ const AppRouter = ({ onLogout }) => {
         <DashboardRoute path="/profile" component={ProfileScreen} fullWidth={fullWidth} />
         <DashboardRoute path="/settings" component={SettingsScreen} fullWidth={fullWidth} onLogout={onLogout} />
         {/* Playground */}
-        <DashboardRoute path="/play" component={Play} fullWidth={fullWidth} />
+        <DashboardRoute path="/play" component={HeartRate} fullWidth={fullWidth} />
         {/* User */}
         <FullScreenRoute path="/user-form" component={UserForm} fullWidth={fullWidth} />
         {/* Timers */}

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, StatusBar, ScrollView } from 'react-native';
 import { BackButton } from 'react-router-native';
 import database from '@react-native-firebase/database';
 import { addWorkout5x5 } from '../../redux/actions/user';
-import { themeColors, ConfirmFooter, Timer, ButtonText } from '../common';
+import { themeColors, ConfirmFooter, Timer } from '../common';
 import { ModalConfirm } from '../common/Modals';
 import { Exercise5x5 } from './Exercise5x5';
 import { connect } from 'react-redux';
