@@ -4,8 +4,11 @@ import { List } from './common';
 // import { onLogout } from '../App';
 import Sound from 'react-native-sound';
 import Beep from '../sounds/beep.mp3'
+import { useHistory } from 'react-router-native';
+import { componentStyle } from '../styles';
 
 export const SettingsScreen = ({ onLogout }) => {
+  const history = useHistory();
   const [DarkMode, setDarkMode] = useState(true)
   const onDarkModeToggle = () => {
     setDarkMode(!DarkMode);
@@ -31,13 +34,18 @@ export const SettingsScreen = ({ onLogout }) => {
   const onSoundPlay = () => {
     beep.play()
   }
-
+  
   const settingsList = [{
     onPress: onDarkModeToggle,
     text: 'Dark mode',
     toggle: true,
     toggleOn: DarkMode,
     icon: 'theme-light-dark',
+  }, {
+    onPress: () => history.push('/user-form'),
+    text: 'Edit User',
+    icon: 'user-edit',
+    iconType: 'fa5',
   }, {
     onPress: () => alert('Alert'),
     text: 'Alert',
@@ -53,17 +61,8 @@ export const SettingsScreen = ({ onLogout }) => {
   }];
   return (
     <View>
-      <Text style={styles.title}>Settings</Text>
+      <Text style={componentStyle.title}>Settings</Text>
       <List list={settingsList} listType='settingsItem' />
     </View>
   )
 };
-
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 25,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 25,
-  }
-});

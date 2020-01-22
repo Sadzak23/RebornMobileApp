@@ -8,8 +8,7 @@ import { connect } from 'react-redux';
 import { PhotoChange } from './PhotoChange';
 import { inputStyles, componentStyle } from '../../styles';
 
-export const UserForm = ({ location, setUser, fullWidth }) => {
-  const user = location.state
+export const UserForm = ({ user, setUser, fullWidth }) => {
   const history = useHistory()
   const [showModal, setShowModal] = useState(false)
   const [userName, setUserName] = useState(user ? user.userName : '')
@@ -165,8 +164,10 @@ const styles = StyleSheet.create({
   },
 });
 
+const mapStateToProps = (state) => ({
+  user: state.user
+});
 const mapDispatchToProps = (dispatch) => ({
   setUser: (user) => dispatch(setUser(user))
-})
-
-export default connect(undefined, mapDispatchToProps)(UserForm)
+});
+export default connect(mapStateToProps, mapDispatchToProps)(UserForm)

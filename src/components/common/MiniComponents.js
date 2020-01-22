@@ -1,9 +1,24 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
+import { themeColors } from './ColorMap';
 
-export const ValueUnit = ({ value, unit }) => (
-  <View style={{ flexDirection: 'row' }}>
-    <Text style={{ fontSize: 30, color: 'white' }}>{value}</Text>
-    <Text style={{ fontSize: 15, lineHeight: 50 }}>{unit}</Text>
-  </View>
+export const ValueUnit = ({ value, unit, valueSize = 28 }) => (
+  <Text style={{ fontSize: valueSize, color: 'white' }}>{value}
+    {unit && <Text style={{ fontSize: 15 }}> {unit}</Text>}
+  </Text>
 )
+
+export const HorisontalField = ({ title, value, unit, lastItem, valueSize }) => (
+  <View style={[styles.horisontalField, !lastItem && { borderRightWidth: 1 }]}>
+    <Text>{title}</Text>
+    <ValueUnit value={value} unit={unit} valueSize={valueSize} />
+  </View>
+);
+
+const styles = StyleSheet.create({
+  horisontalField: {
+    alignItems: 'center',
+    borderColor: themeColors.offBlack,
+    flex: 1
+  },
+})

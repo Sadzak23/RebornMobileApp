@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import { useHistory } from 'react-router-native';
-import { ButtonIcon, themeColors, Icon, getAge, ValueUnit } from './common';
+import { ButtonIcon, themeColors, Icon, getAge, ValueUnit, HorisontalField, ButtonIconText } from './common';
 import avatarMale from '../images/Avatar/male.png'
 import { BmiCalculator } from './Calculators/BMI/BmiCalculator';
 import { buttonStyles } from '../styles/buttons';
@@ -12,44 +12,33 @@ export const ProfileScreen = ({ user, fullWidth }) => {
   return (
     <View>
       <ButtonIcon icon='user-edit' iconType='fa5' style={buttonStyles.floatingBtn}
-        onPress={() => history.push({ pathname: '/user-form', state: user })} />
+        onPress={() => history.push('/user-form')} />
       <ScrollView>
-        <View style={{...styles.container, width: '100%'}}>
-          <View style={{...styles.nameContainer, width: fullWidth}}>
+        <View style={styles.container}>
+          <View style={{ ...styles.nameContainer, width: fullWidth }}>
             <View style={styles.avatarContainer}>
               <Image source={user.photoURL ? { uri: user.photoURL } : avatarMale} style={styles.avatar} />
+              <View style={{
+                backgroundColor: themeColors.theme2,
+                height: 40,
+                width: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 30,
+                position: 'absolute',
+                bottom: 0,
+                right: 58
+              }}>
+                <Icon icon={user.gender == 'male' ? 'male' : 'female'} type='fa' color={themeColors.offWhite} size={25} />
+              </View>
             </View>
             <Text style={styles.userName}>{user.userName}</Text>
             <Text style={styles.email}>{user.email}</Text>
           </View>
-
           <View style={styles.newCont}>
-            <View style={{ ...styles.newItem, borderRightWidth: 1 }}>
-              <Text>Height</Text>
-              <ValueUnit value={user.height} unit='cm' />
-            </View>
-            <View style={{ ...styles.newItem, borderRightWidth: 1 }}>
-              <Text>Age</Text>
-              <ValueUnit value={getAge(user.birthdate)} />
-            </View>
-            <View style={styles.newItem}>
-              <Text>Weight</Text>
-              <ValueUnit value={user.weight} unit='kg' />
-            </View>
-          </View>
-
-          <View style={[styles.itemsContainer, styles.heightWeight]}>
-            <View style={{ alignItems: 'center' }}>
-              <Icon icon='altimeter' />
-              <Text style={styles.value}>{user.height}cm</Text>
-            </View>
-            <View style={styles.gender}>
-              <Icon icon={user.gender == 'male' ? 'male' : 'female'} type='fa' color={themeColors.offWhite} />
-            </View>
-            <View style={{ alignItems: 'center' }}>
-              <Icon icon='scale-bathroom' />
-              <Text style={styles.value}>{user.weight}kg</Text>
-            </View>
+            <HorisontalField title='Height' value={user.height} unit='cm' />
+            <HorisontalField title='Age' value={getAge(user.birthdate)} />
+            <HorisontalField title='Weight' value={user.weight} unit='kg' lastItem />
           </View>
           <BmiCalculator height={user.height} weight={user.weight} />
         </View>
@@ -62,6 +51,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     paddingHorizontal: 40,
+    marginBottom: 100,
+    width: '100%'
   },
   avatarContainer: {
     borderWidth: 3,
@@ -102,11 +93,6 @@ const styles = StyleSheet.create({
     marginTop: -50,
     marginBottom: 10,
     width: '100%',
-  },
-  newItem: {
-    alignItems: 'center',
-    borderColor: themeColors.offBlack,
-    flex: 1
   },
   itemsContainer: {
     borderColor: themeColors.themeColor,

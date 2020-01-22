@@ -38,7 +38,7 @@ export const List = ({ list, listType, iconSize = 23, iconStyle = styles.icon })
                     icon={item.icon}
                     iconSize={iconSize}
                     iconType={item.iconType}
-                    iconStyle={{ marginRight: 10 }}
+                    iconStyle={{ width: 40 }}
                   />
                 </View>
               )

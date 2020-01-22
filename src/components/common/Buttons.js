@@ -37,7 +37,7 @@ export const ButtonIconText = ({ onPress, blankStyle, style, text, textStyle, ic
   );
 };
 
-export const ButtonSettings = ({ onPress, text, icon, iconType, iconSize = 28, iconStyle, toggle, toggleOn }) => {
+export const ButtonSettings = ({ onPress, text, icon, iconType, iconSize, iconStyle, toggle, toggleOn }) => {
   return (
     <TouchableOpacity style={styles.settingsBtn} onPress={onPress}>
       <View style={{ flexDirection: 'row' }}>
