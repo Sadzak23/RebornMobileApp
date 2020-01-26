@@ -40,6 +40,7 @@ export const modalStyles = StyleSheet.create({
   },
   container: {
     paddingVertical: 15,
+    alignItems: 'center'
   },
   title: {
     textAlign: 'center',

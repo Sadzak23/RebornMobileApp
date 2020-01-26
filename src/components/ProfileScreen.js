@@ -18,17 +18,7 @@ export const ProfileScreen = ({ user, fullWidth }) => {
           <View style={{ ...styles.nameContainer, width: fullWidth }}>
             <View style={styles.avatarContainer}>
               <Image source={user.photoURL ? { uri: user.photoURL } : avatarMale} style={styles.avatar} />
-              <View style={{
-                backgroundColor: themeColors.theme2,
-                height: 40,
-                width: 40,
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 30,
-                position: 'absolute',
-                bottom: 0,
-                right: 58
-              }}>
+              <View style={styles.gender}>
                 <Icon icon={user.gender == 'male' ? 'male' : 'female'} type='fa' color={themeColors.offWhite} size={25} />
               </View>
             </View>
@@ -60,6 +50,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     elevation: 20,
     marginTop: 20,
+    marginBottom: 20,
     padding: 4,
   },
   avatar: {
@@ -108,12 +99,18 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   gender: {
-    alignItems: 'center',
+    backgroundColor: themeColors.theme2,
+    borderWidth: 1,
+    borderColor: themeColors.offWhite,
+    elevation: 5,
+    height: 40,
+    width: 40,
     justifyContent: 'center',
-    backgroundColor: themeColors.themeColor,
-    borderRadius: 50,
-    height: 60,
-    width: 60,
+    alignItems: 'center',
+    borderRadius: 30,
+    position: 'absolute',
+    bottom: -20,
+    right: 58
   },
   value: {
     fontSize: 25,

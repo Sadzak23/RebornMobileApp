@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, StatusBar, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, StatusBar, ScrollView, FlatList } from 'react-native';
 import { useHistory, BackButton } from 'react-router-native';
-import { ButtonIconText, themeColors, ConfirmFooter } from '../common';
+import { ButtonIconText, themeColors, ConfirmFooter, ValueUnit, HorisontalField } from '../common';
 import { componentStyle } from '../../styles';
 
 export const Dashboard5x5 = ({ user }) => {
@@ -15,65 +15,67 @@ export const Dashboard5x5 = ({ user }) => {
     { name: 'Deadlift', value: data.Deadlift },
   ]
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <View style={styles.container}>
       <StatusBar hidden animated />
-      <View style={styles.contentContainer}>
+      <View style={styles.header}>
         <Text style={componentStyle.title}>Strong Lifts</Text>
-        <ButtonIconText
-          blankStyle
-          style={styles.editBtn}
-          onPress={() => history.push({ pathname: 'weights-form5x5', state: user })}
-          text='Edit Weights' icon='wpforms' iconType='fa5' iconStyle={{ marginRight: 5 }} />
-        {values &&
-          <View style={styles.valueContainer}>
-            <Text style={[componentStyle.subtitle, { marginBottom: 10 }]}>Current weights:</Text>
-            {values.map(e => <Text key={e.name}>{e.name}: <Text style={styles.value}>{e.value}</Text>kg</Text>)}
-          </View>
-        }
       </View>
+      <View style={styles.contentContainer}>
+        <View style={[styles.weightsContainer, { borderBottomWidth: 1 }]}>
+          <HorisontalField title={values[0].name} value={values[0].value} unit='kg' borderColor='#888' />
+          <HorisontalField title={values[1].name} value={values[1].value} unit='kg' borderColor='#888' />
+          <HorisontalField title={values[2].name} value={values[2].value} unit='kg' lastItem />
+        </View>
+        <View style={styles.weightsContainer}>
+          <HorisontalField title={values[3].name} value={values[3].value} unit='kg' borderColor='#888' />
+          <HorisontalField title={values[4].name} value={values[4].value} unit='kg' lastItem />
+        </View>
+      </View>
+      <ButtonIconText
+        blankStyle style={styles.startBtn}
+        text='Start Workout' textStyle={{ fontSize: 40 }}
+        icon='dumbbell' iconType='fa5' iconStyle={{ marginRight: 10 }}
+        onPress={() => history.push({ pathname: 'workout-5x5', state: user })}
+      />
       <ConfirmFooter
-        confirmText='Start Workout'
-        confirmIcon='dumbbell'
-        confirmIconType='fa5'
-        confirmIconSize={18}
-        onConfirm={() => history.push({
-          pathname: 'workout-5x5',
-          state: user
-        })}
+        confirmText='Edit Weights' confirmIcon='wpforms' confirmIconType='fa5'
+        onConfirm={() => history.push({ pathname: 'weights-form5x5', state: user })}
         disableConfirm={!values}
       />
       <BackButton />
-    </ScrollView>
+    </View>
   )
 };
+
 const styles = StyleSheet.create({
   container: {
     height: '100%',
     width: '100%',
   },
   contentContainer: {
-    alignItems: 'center',
     flex: 1,
-    paddingHorizontal: 10,
+    justifyContent: 'center'
   },
-  editBtn: {
-    backgroundColor: themeColors.themeColor,
-    padding: 15,
-  },
-  valueContainer: {
-    alignItems: 'center',
+  header: {
     backgroundColor: themeColors.theme2,
-    borderWidth: 2,
-    borderColor: themeColors.offWhite,
-    borderRadius: 20,
+    flexDirection: 'row',
+    height: 80,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
     elevation: 10,
-    paddingHorizontal: 20,
-    paddingVertical: 5,
-    marginVertical: 15,
   },
-  value: {
-    color: themeColors.offWhite,
-    fontWeight: 'bold',
-    fontSize: 18,
-  }
+  startBtn: {
+    backgroundColor: themeColors.theme2,
+    alignItems: 'center',
+    paddingVertical: 20,
+    marginBottom: 4,
+  },
+  weightsContainer: {
+    backgroundColor: themeColors.transparentBody,
+    flexDirection: 'row',
+    paddingVertical: 10,
+    width: '100%',
+    borderColor: '#888'
+  },
 });
