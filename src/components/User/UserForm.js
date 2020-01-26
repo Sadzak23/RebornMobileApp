@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView, StatusBar } from 'react-native';
 import database from '@react-native-firebase/database';
 import { useHistory, BackButton } from 'react-router-native';
-import { themeColors, ButtonIcon, DatePicker, formatDateEU, ListItem, Icon, ConfirmFooter } from '../common';
+import { themeColors, DatePicker, formatDateEU, ListItem, Icon, ConfirmFooter } from '../common';
 import { setUser } from '../../redux/actions/user';
 import { connect } from 'react-redux';
 import { PhotoChange } from './PhotoChange';
