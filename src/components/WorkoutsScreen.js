@@ -2,7 +2,6 @@ import React from 'react';
 import { View, ScrollView, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useHistory, BackButton } from 'react-router-native';
 import { themeColors, Icon } from './common';
-import { componentStyle } from '../styles';
 import circuit from '../images/workouts/circuit.jpg';
 import strongLifts from '../images/workouts/strongLifts.jpg';
 import hrWorkout from '../images/workouts/hrWorkout.jpg';
@@ -33,7 +32,6 @@ export const WorkoutsScreen = () => {
   }];
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={componentStyle.title}>Select Workout</Text>
       {workoutsList.map(e => (
         <TouchableOpacity onPress={() => history.push(e.link)} key={e.text} style={styles.workoutCard}>
           <View style={{ ...styles.nameContainer, backgroundColor: e.color, }}>
@@ -55,7 +53,7 @@ const styles = StyleSheet.create({
   },
   workoutCard: {
     flexDirection: 'row',
-    marginBottom: 5,
+    marginTop: 5,
     width: '100%',
   },
   nameContainer: {

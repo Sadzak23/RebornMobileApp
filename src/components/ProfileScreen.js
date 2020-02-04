@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import { useHistory } from 'react-router-native';
-import { ButtonIcon, themeColors, Icon, getAge, ValueUnit, HorisontalField, ButtonIconText } from './common';
+import { ButtonIcon, themeColors, Icon, HorisontalField} from './common';
 import avatarMale from '../images/Avatar/male.png'
 import { BmiCalculator } from './Calculators/BMI/BmiCalculator';
 import { buttonStyles } from '../styles/buttons';
+import { getAge } from '../functions';
 
 export const ProfileScreen = ({ user, fullWidth }) => {
   const history = useHistory();

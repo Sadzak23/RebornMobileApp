@@ -5,7 +5,7 @@ import Orientation from 'react-native-orientation-locker';
 import { Header, Footer } from '../components/common';
 import { themeColors } from '../components/common/ColorMap';
 
-export const DashboardRoute = ({ path, exact, noBack, fullWidth, component: Component, ...rest }) => {
+export const DashboardRoute = ({ path, exact, noBack, fullWidth, component: Component, title, ...rest }) => {
   useEffect(() => {
     Orientation.lockToPortrait();
     return () => Orientation.unlockAllOrientations();
@@ -16,7 +16,6 @@ export const DashboardRoute = ({ path, exact, noBack, fullWidth, component: Comp
       alignItems: 'center',
       backgroundColor: themeColors.body,
       height: '100%',
-      paddingTop: 60,
       width: fullWidth,
     },
     componentContent: {
@@ -28,7 +27,7 @@ export const DashboardRoute = ({ path, exact, noBack, fullWidth, component: Comp
   return (
     <Route exact={exact} path={path} render={props => (
       <View style={styles.screenContainer}>
-        <Header noBack={noBack} />
+        <Header noBack={noBack} title={title} />
         <View style={styles.componentContent}>
           <Component {...props} {...rest} fullWidth={fullWidth} />
         </View>

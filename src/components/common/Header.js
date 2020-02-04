@@ -1,28 +1,27 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, Text } from 'react-native';
 import { useHistory } from 'react-router-native';
 import { ButtonIcon } from './Buttons';
 import { themeColors } from './ColorMap';
-import logo from '../../images/logo.png';
 
-export const Header = ({ noBack }) => {
+export const Header = ({ noBack, title }) => {
   const history = useHistory();
   return (
     <View style={styles.container}>
-      {!noBack && <ButtonIcon onPress={() => history.goBack()} icon='arrow-left-bold-circle-outline' />}
-      <Image source={logo} style={styles.logo} />
-      <ButtonIcon onPress={() => history.push('/settings')} icon='settings' />
+      <View style={{ width: 30 }}>
+        {!noBack &&
+          <ButtonIcon onPress={() => history.goBack()} icon='arrow-left' />
+        }
+      </View>
+      <Text style={styles.title}>{title}</Text>
+      <ButtonIcon onPress={() => history.push('/settings')} icon='settings'
+        style={{ width: 30 }} />
     </View>
   )
 };
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -32,11 +31,9 @@ const styles = StyleSheet.create({
     width: '100%',
     elevation: 10,
   },
-  textStyle: {
-    fontSize: 20,
-  },
-  logo: {
-    width: 85,
-    height: 40,
+  title: {
+    fontSize: 25,
+    color: themeColors.offWhite,
+    fontWeight: 'bold'
   }
 });
