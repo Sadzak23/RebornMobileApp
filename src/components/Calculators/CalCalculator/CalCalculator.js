@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import Modal, { ModalContent } from 'react-native-modals';
 import { metActivity } from './CalMaps';
-import { componentStyle } from '../../../styles';
-import { Icon, ButtonIconText, themeColors, formatMinutes } from '../../common';
+import { Icon, ButtonIconText, themeColors } from '../../common';
+import { formatMinutes } from '../../../functions';
 import { BackButton } from 'react-router-native';
 
 export const CalCalculator = ({ user, fullWidth }) => {
@@ -47,9 +47,8 @@ export const CalCalculator = ({ user, fullWidth }) => {
   return (
     <ScrollView>
       <View style={{ width: fullWidth, marginBottom: 70 }}>
-        <View style={styles.titleContainer}>
-          <Text style={componentStyle.title}>Calories Calculator</Text>
-          <Icon size={50} icon={metActivity[activity].icon} type='fa5' style={styles.icon} />
+        <View style={styles.iconContainer}>
+          <Icon size={50} icon={metActivity[activity].icon} type='fa5' />
         </View>
         {/* Calculator Type */}
         <View style={styles.calculatorTypeContainer}>
@@ -142,7 +141,14 @@ const mainContainer = {
   elevation: 20,
 }
 const styles = StyleSheet.create({
-  titleContainer: { backgroundColor: themeColors.themeColor, paddingBottom: 30, elevation: 5, height: 140 },
+  iconContainer: { 
+    backgroundColor: themeColors.themeColor,
+    paddingBottom: 30,
+    elevation: 5,
+    height: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   widgetContainer: {
     borderBottomRightRadius: 30,
     borderBottomLeftRadius: 30,
@@ -151,12 +157,11 @@ const styles = StyleSheet.create({
     paddingBottom: 60,
     marginHorizontal: 20,
   },
-  icon: { marginTop: -5, textAlign: 'center' },
   calculatorTypeContainer: {
     ...mainContainer,
     position: 'absolute',
     height: 50,
-    top: 115,
+    top: 75,
     left: 50,
     right: 50,
     zIndex: 1

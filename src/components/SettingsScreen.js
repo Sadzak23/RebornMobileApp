@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { List } from './common';
+import { View, FlatList } from 'react-native';
+import { ButtonSettings, listStyles, FlatListSeparator } from './common';
 // import { onLogout } from '../App';
 import Sound from 'react-native-sound';
 import Beep from '../sounds/beep.mp3'
 import { useHistory } from 'react-router-native';
-import { componentStyle } from '../styles';
 
 export const SettingsScreen = ({ onLogout }) => {
   const history = useHistory();
@@ -34,7 +33,7 @@ export const SettingsScreen = ({ onLogout }) => {
   const onSoundPlay = () => {
     beep.play()
   }
-  
+
   const settingsList = [{
     onPress: onDarkModeToggle,
     text: 'Dark mode',
@@ -60,9 +59,25 @@ export const SettingsScreen = ({ onLogout }) => {
     icon: 'logout',
   }];
   return (
-    <View>
-      <Text style={componentStyle.title}>Settings</Text>
-      <List list={settingsList} listType='settingsItem' />
-    </View>
+    <FlatList
+      style={listStyles.list}
+      keyExtractor={item => item.text}
+      data={settingsList}
+      renderItem={({ item }) =>
+        <View style={listStyles.listItem}>
+          <ButtonSettings
+            onPress={item.onPress}
+            text={item.text}
+            toggle={item.toggle}
+            toggleOn={item.toggleOn}
+            icon={item.icon}
+            iconSize={23}
+            iconType={item.iconType}
+            iconStyle={{ width: 40 }}
+          />
+        </View>
+      }
+      ItemSeparatorComponent={() => <FlatListSeparator />}
+    />
   )
 };

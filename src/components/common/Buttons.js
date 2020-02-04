@@ -53,12 +53,12 @@ export const ButtonSpinner = ({ onPress, spinner, color, blankStyle, style, text
   const textColor = color ? color : styles.buttonText.color
   const buttonStyle = [(!blankStyle && styles.button), style, disabled && styles.disabled]
   const iconStyles = [styles.icon, iconStyle, disabled && styles.disabledText]
-  const textStyles = [styles.buttonText, {color: textColor}, textStyle, disabled && styles.disabledText]
+  const textStyles = [styles.buttonText, { color: textColor }, textStyle, disabled && styles.disabledText]
   return (
     <TouchableOpacity disabled={disabled} style={buttonStyle} onPress={onPress}>
       <View style={styles.content}>
         {spinner ?
-          <ActivityIndicator style={{marginRight: 5}} color={textColor} /> :
+          <ActivityIndicator style={{ marginRight: 5 }} color={textColor} /> :
           <Icon icon={icon} type={iconType} size={iconSize} color={textColor} style={iconStyles} />
         }
         <Text style={textStyles}>{text}</Text>
@@ -88,7 +88,5 @@ const styles = StyleSheet.create({
   settingsBtn: {
     justifyContent: 'space-between',
     flexDirection: 'row',
-    padding: 10,
-    width: 300,
   }
 })

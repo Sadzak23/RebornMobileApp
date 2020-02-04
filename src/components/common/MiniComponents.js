@@ -14,3 +14,6 @@ export const HorisontalField = ({ title, value, unit, lastItem, borderColor = th
     <ValueUnit value={value} unit={unit} valueSize={valueSize} />
   </View>
 );
+
+export const FlatListSeparator = () => <View style={{
+  backgroundColor: themeColors.offWhite, height: 1 }} />

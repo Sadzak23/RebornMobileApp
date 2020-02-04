@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { ValueUnit, themeColors, HorisontalField } from '../../common';
+import { themeColors, HorisontalField } from '../../common';
 
 const resultBMI = (bmi, range) => {
   if (bmi < 18.5) return range[0].status;
