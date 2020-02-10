@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, FlatList } from 'react-native';
 import { ButtonSettings, listStyles, FlatListSeparator } from './common';
-// import { onLogout } from '../App';
 import Sound from 'react-native-sound';
 import Beep from '../sounds/beep.mp3'
 import { useHistory } from 'react-router-native';
@@ -42,13 +41,13 @@ export const SettingsScreen = ({ onLogout }) => {
     icon: 'theme-light-dark',
   }, {
     onPress: () => history.push('/user-form'),
-    text: 'Edit User',
+    text: 'Edit user',
     icon: 'user-edit',
     iconType: 'fa5',
   }, {
-    onPress: () => alert('Alert'),
-    text: 'Alert',
-    icon: 'bell',
+    onPress: () => history.push('/search-hrm'),
+    text: 'Pair sensor',
+    icon: 'bluetooth',
   }, {
     onPress: onSoundPlay,
     text: 'Sound',
