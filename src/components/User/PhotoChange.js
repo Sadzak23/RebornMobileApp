@@ -3,7 +3,8 @@ import { Text, StyleSheet } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import ImagePicker from 'react-native-image-crop-picker';
 import Modal, { ModalContent } from 'react-native-modals';
-import { ButtonIconText, themeColors, resizeGooglePhoto } from '../common';
+import { ButtonIconText, themeColors } from '../common';
+import { resizeGooglePhoto } from '../../functions';
 
 export const PhotoChange = ({ showModal, setShowModal, setPhoto }) => {
   const googlePhoto = auth().currentUser.photoURL
