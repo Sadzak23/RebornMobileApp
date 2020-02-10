@@ -1,12 +1,12 @@
 import { createStore, combineReducers } from 'redux';
 import userReducer from '../reducers/user';
-import sensorsReducer from '../reducers/sensors';
+import bluetoothReducer from '../reducers/bluetooth';
 
 export default () => {
   const store = createStore(
     combineReducers({
       user: userReducer,
-      sensors: sensorsReducer
+      bluetooth: bluetoothReducer
     }),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   );
