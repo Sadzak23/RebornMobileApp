@@ -49,7 +49,7 @@ export const BmiCalculator = ({ height, weight }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: themeColors.theme2,
+    backgroundColor: themeColors.themePrimary,
     borderWidth: 1,
     borderColor: themeColors.offBlack,
     borderRadius: 10,

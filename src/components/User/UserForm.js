@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     height: 150,
     width: 150,
     borderWidth: 5,
-    borderColor: themeColors.header,
+    borderColor: themeColors.themePrimary,
     borderRadius: 100,
     marginTop: 10,
   },

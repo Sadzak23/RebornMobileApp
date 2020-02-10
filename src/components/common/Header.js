@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 15,
-    backgroundColor: themeColors.header,
+    backgroundColor: themeColors.themePrimary,
     height: 60,
     width: '100%',
     elevation: 10,

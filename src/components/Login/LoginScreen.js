@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   btn: {
-    backgroundColor: themeColors.theme2,
+    backgroundColor: themeColors.themePrimary,
     justifyContent: 'center',
     marginBottom: 15,
     width: 300

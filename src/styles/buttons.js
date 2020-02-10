@@ -13,14 +13,14 @@ const btnStyle = {
 export const buttonStyles = StyleSheet.create({
   iconBtn: {
     ...btnStyle,
-    backgroundColor: themeColors.theme2,
+    backgroundColor: themeColors.themePrimary,
     margin: 20,
   },
   floatingBtn: {
     ...btnStyle,
-    backgroundColor: themeColors.theme2,
+    backgroundColor: themeColors.themePrimary,
     position: 'absolute',
-    bottom: 30,
+    bottom: 50,
     right: 0,
     elevation: 5,
     zIndex: 1

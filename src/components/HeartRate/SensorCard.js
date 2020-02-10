@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   connected: {
-    backgroundColor: themeColors.theme2,
+    backgroundColor: themeColors.themePrimary,
     elevation: 10,
   }
 })

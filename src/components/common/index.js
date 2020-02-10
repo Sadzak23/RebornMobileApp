@@ -3,7 +3,6 @@ export * from './ColorMap';
 export * from './DateTimePicker';
 export * from './Dimensions';
 export * from './Footer';
-export * from './Format';
 export * from './Header';
 export * from './Icon';
 export * from './Inputs';

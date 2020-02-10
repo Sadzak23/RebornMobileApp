@@ -27,14 +27,14 @@ const AppRouter = ({ onLogout }) => {
   }, []);
   return (
     <NativeRouter>
-      <StatusBar backgroundColor={themeColors.header} animated />
+      <StatusBar backgroundColor={themeColors.themePrimary} animated />
       <Switch>
         <DashboardRoute exact path='/' component={HomeScreen} fullWidth={fullWidth} noBack title='Home' />
         <DashboardRoute path='/workouts' component={WorkoutsScreen} fullWidth={fullWidth} noBack title='Select workout' />
         <DashboardRoute path='/profile' component={ProfileScreen} fullWidth={fullWidth} noBack title='Profile' />
         <DashboardRoute path='/settings' component={SettingsScreen} fullWidth={fullWidth} onLogout={onLogout} title='Settings' />
         {/* Playground */}
-        <DashboardRoute path='/play' component={HeartRate} fullWidth={fullWidth} />
+        <DashboardRoute path='/play' component={HeartRate} fullWidth={fullWidth} title='Playground' />
         {/* User */}
         <FullScreenRoute path='/user-form' component={UserForm} fullWidth={fullWidth} />
         {/* Timers */}

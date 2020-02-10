@@ -134,7 +134,7 @@ export const CalCalculator = ({ user, fullWidth }) => {
   );
 };
 const mainContainer = {
-  backgroundColor: themeColors.theme2,
+  backgroundColor: themeColors.themePrimary,
   borderWidth: 2,
   borderColor: themeColors.offWhite,
   borderRadius: 20,  

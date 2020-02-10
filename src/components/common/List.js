@@ -2,8 +2,9 @@ import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { useHistory } from 'react-router-native';
 import { themeColors } from './ColorMap';
-import { ButtonText, ButtonIconText, ButtonSettings } from './Buttons';
+import { ButtonText, ButtonIconText } from './Buttons';
 import Icon from './Icon';
+import { fullWidth, fullHeignt } from './Dimensions';
 
 export const List = ({ list, listType, iconSize = 23, iconStyle = styles.icon }) => {
   const history = useHistory();
@@ -24,21 +25,6 @@ export const List = ({ list, listType, iconSize = 23, iconStyle = styles.icon })
                     iconStyle={iconStyle}
                     blankStyle
                     style={styles.button}
-                  />
-                </View>
-              )
-            case 'settingsItem':
-              return (
-                <View key={item.text} style={styles.listItemContainer}>
-                  <ButtonSettings
-                    onPress={item.onPress}
-                    text={item.text}
-                    toggle={item.toggle}
-                    toggleOn={item.toggleOn}
-                    icon={item.icon}
-                    iconSize={iconSize}
-                    iconType={item.iconType}
-                    iconStyle={{ width: 40 }}
                   />
                 </View>
               )
@@ -96,7 +82,7 @@ const listItemStyle = StyleSheet.create({
     paddingRight: 10,
   },
   border: {
-    borderColor: themeColors.theme2,
+    borderColor: themeColors.themePrimary,
     borderTopWidth: 2,
   },
   labelContainer: {
@@ -133,3 +119,15 @@ const styles = StyleSheet.create({
     width: 35,
   },
 });
+
+export const listStyles = StyleSheet.create({
+  list: {
+    marginTop: 10,
+    maxHeight: fullHeignt-165
+  },
+  listItem: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    width: fullWidth - 40,
+  }
+})

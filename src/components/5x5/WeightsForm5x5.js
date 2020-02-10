@@ -9,7 +9,7 @@ import { themeColors, ButtonText, ConfirmFooter, modalStyles } from '../common';
 import { componentStyle } from '../../styles';
 import { setEditData5x5 } from '../../redux/actions/user';
 
-export const WeightsForm = ({ location, user=location.state, setEditData5x5 }) => {
+export const WeightsForm = ({ location, user = location.state, setEditData5x5 }) => {
   const userData = user.workouts.strongLifts;
   const [squat, setSquat] = useState(userData ? userData.Squat : '20')
   const [benchPress, setBenchPress] = useState(userData ? userData['Bench Press'] : '20')
@@ -75,49 +75,49 @@ export const WeightsForm = ({ location, user=location.state, setEditData5x5 }) =
         <Text style={componentStyle.subtitle}>What is max weight you can lift 5 times?</Text>
         <Text>If you never tried an exercise, leave weight field blank</Text>
       </View>
-        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-          <View style={styles.container}>
-            <View style={{ flex: 1, justifyContent: 'center' }}>
-              {exercisesInputs.map((e, index) =>
-                <ButtonText
-                  key={e.name}
-                  blankStyle
-                  style={styles.input}
-                  text={`${e.name}: 5 x ${e.value}kg`}
-                  onPress={() => onInputPress(index)}
-                />
-              )}
-              <Modal visible={showModal}
-                modalAnimation={new ScaleAnimation()}
-                modalStyle={modalStyles.modal}
-                onTouchOutside={() => setShowModal(false)}
-                onHardwareBackPress={() => setShowModal(false)}
-              >
-                <ModalContent style={modalStyles.container}>
-                  <Text style={modalStyles.title}>{exercisesInputs[currentInput].name}</Text>
-                  <View style={modalStyles.input}>
-                    <TextInput autoFocus autoCorrect={false} placeholder='0' selectTextOnFocus keyboardType='numeric'
-                      onChangeText={(e) => {
-                        if (!e || e.match(/^\d{1,3}([.]\d{0,1})?$/)) exercisesInputs[currentInput].set(e)
-                      }}
-                      style={{ textAlign: 'right', fontSize: 20, }}
-                      value={String(exercisesInputs[currentInput].value)}
-                      onSubmitEditing={() => setShowModal(false)}
-                    />
-                    <Text>kg</Text>
-                  </View>
-                </ModalContent>
-              </Modal>
-            </View>
-            <BackButton />
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={styles.container}>
+          <View style={{ flex: 1, justifyContent: 'center' }}>
+            {exercisesInputs.map((e, index) =>
+              <ButtonText
+                key={e.name}
+                blankStyle
+                style={styles.input}
+                text={`${e.name}: 5 x ${e.value}kg`}
+                onPress={() => onInputPress(index)}
+              />
+            )}
+            <Modal visible={showModal}
+              modalAnimation={new ScaleAnimation()}
+              modalStyle={modalStyles.modal}
+              onTouchOutside={() => setShowModal(false)}
+              onHardwareBackPress={() => setShowModal(false)}
+            >
+              <ModalContent style={modalStyles.container}>
+                <Text style={modalStyles.title}>{exercisesInputs[currentInput].name}</Text>
+                <View style={modalStyles.input}>
+                  <TextInput autoFocus autoCorrect={false} placeholder='0' selectTextOnFocus keyboardType='numeric'
+                    onChangeText={(e) => {
+                      if (!e || e.match(/^\d{1,3}([.]\d{0,1})?$/)) exercisesInputs[currentInput].set(e)
+                    }}
+                    style={{ textAlign: 'right', fontSize: 20, }}
+                    value={String(exercisesInputs[currentInput].value)}
+                    onSubmitEditing={() => setShowModal(false)}
+                  />
+                  <Text>kg</Text>
+                </View>
+              </ModalContent>
+            </Modal>
           </View>
-        </ScrollView>
-        <ConfirmFooter
-          onConfirm={userData ? onEdit : onSave}
-          confirmText={userData ? 'Update' : 'Save'}
-          confirmIcon={'content-save'}
-          cancelText={'Go Back'}
-        />
+        </View>
+      </ScrollView>
+      <ConfirmFooter
+        onConfirm={userData ? onEdit : onSave}
+        confirmText={userData ? 'Update' : 'Save'}
+        confirmIcon={'content-save'}
+        cancelText={'Go Back'}
+      />
+      <BackButton />
     </View>
   )
 };
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     marginBottom: 30
   },
   title: {
-    backgroundColor: themeColors.theme2,
+    backgroundColor: themeColors.themePrimary,
     alignItems: 'center',
     paddingBottom: 10
   },

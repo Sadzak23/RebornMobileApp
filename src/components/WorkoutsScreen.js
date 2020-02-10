@@ -14,7 +14,7 @@ export const WorkoutsScreen = () => {
     icon: 'stopwatch',
     iconType: 'fa5',
     image: circuit,
-    color: themeColors.theme2
+    color: themeColors.themePrimary
   }, {
     link: '/dashboard-5x5',
     text: 'Strong Lifts',

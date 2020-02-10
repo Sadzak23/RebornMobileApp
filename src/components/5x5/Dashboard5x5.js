@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   header: {
-    backgroundColor: themeColors.theme2,
+    backgroundColor: themeColors.themePrimary,
     flexDirection: 'row',
     height: 80,
     justifyContent: 'center',
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   startBtn: {
-    backgroundColor: themeColors.theme2,
+    backgroundColor: themeColors.themePrimary,
     alignItems: 'center',
     paddingVertical: 20,
     marginBottom: 4,

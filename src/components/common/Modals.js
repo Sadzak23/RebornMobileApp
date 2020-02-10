@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import Modal, { ModalContent, ScaleAnimation } from 'react-native-modals';
 import { themeColors } from './ColorMap';
@@ -33,7 +33,7 @@ export const ModalConfirm = ({ visible, setVisible, title, subtitle, onConfirm, 
 
 export const modalStyles = StyleSheet.create({
   modal: {
-    backgroundColor: themeColors.theme2,
+    backgroundColor: themeColors.themePrimary,
     borderRadius: 30,
     marginVertical: 20,
     maxWidth: '90%',
@@ -56,7 +56,7 @@ export const modalStyles = StyleSheet.create({
   input: {
     ...inputStyles.input,
     elevation: 20,
-    backgroundColor: themeColors.theme2
+    backgroundColor: themeColors.themePrimary
   },
   btnsContainer: {
     flexDirection: 'row',

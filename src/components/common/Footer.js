@@ -45,7 +45,7 @@ const footerStyles = StyleSheet.create({
   container: {
     position: 'absolute',
     bottom: 0,
-    backgroundColor: themeColors.header,
+    backgroundColor: themeColors.themePrimary,
     flexDirection: 'row',
     justifyContent: 'space-around',
     height: 50,
@@ -87,7 +87,7 @@ const confirmFooterStyles = StyleSheet.create({
     justifyContent: 'center'
   },
   button: {
-    backgroundColor: themeColors.theme2,
+    backgroundColor: themeColors.themePrimary,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',

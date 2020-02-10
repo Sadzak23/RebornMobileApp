@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   newCont: {
-    backgroundColor: themeColors.theme2,
+    backgroundColor: themeColors.themePrimary,
     borderWidth: 1,
     borderColor: themeColors.offBlack,
     borderRadius: 10,
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   gender: {
-    backgroundColor: themeColors.theme2,
+    backgroundColor: themeColors.themePrimary,
     borderWidth: 1,
     borderColor: themeColors.offWhite,
     elevation: 5,

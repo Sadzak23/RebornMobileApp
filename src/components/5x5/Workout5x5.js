@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   timer: {
-    backgroundColor: themeColors.theme2,
+    backgroundColor: themeColors.themePrimary,
     flexDirection: 'row',
     height: 80,
     justifyContent: 'center',

@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   btn: {
-    backgroundColor: themeColors.theme2,
+    backgroundColor: themeColors.themePrimary,
     width: 50,
     height: 50,
     justifyContent: 'center',
